@@ -1,0 +1,132 @@
+=gfy-elements($font: undefined)
+  body, select, input, textarea
+    color: $black
+  body
+    @if $font == undefined
+      :font 10px/1em 'Lucida Grande', Arial, sans-serif
+    @else
+      :font $font
+    a
+      :color $blue
+      :border-color $blue
+      &:hover
+        outline: none
+      &:active
+        outline: none
+        :color $blue
+        //:border-color $blue
+      &:visited
+        :color $purple
+        //:border-color $purple
+      &:hover
+        :color $blue_light
+        //:border-color $blue_light
+      &:link
+        -webkit-tap-highlight-color: $blue_light
+    
+    abbr[title], dfn[title]
+      border-bottom: 1px dotted
+      cursor: help
+    blockquote, q
+      quotes: none
+    blockquote
+      &:before, &:after
+        content: ''
+        content: none
+    // TODO make form elements 10px equivalent
+    //button, input, select, textarea
+      //font: 99% sans-serif
+    code, kbd, pre, samp
+      font-family: monospace, sans-serif
+    
+    del
+      text-decoration: line-through
+    figure
+      :position relative
+      & img, & object, & embed, & video
+        :max-width 100%
+        :display block
+    h1, h2, h3, h4, h5, h6
+      :font-weight normal
+      :line-height 1.8em
+      strong
+        :font-weight bold
+    h1
+      :font-size 2.1em
+      :border-color #333
+    h2
+      :font-size 1.7em
+      :letter-spacing -0.05em
+    h3
+      :font-size 1.4em
+
+    h4
+      :font-size 1.3em
+
+    h5
+      :font-size 1.2em
+
+    h6
+      :font-size 1.1em
+    hr
+      display: block
+      height: 1px
+      border: 0
+      border-top: 1px solid $gray_light
+      margin: 1em 0
+      padding: 0
+    input, select
+      vertical-align: middle
+    
+    ins
+      background-color: $yellow
+      color: #000
+      text-decoration: none
+    img
+      :border 0
+      html.ie7 &
+        -ms-interpolation-mode: bicubic
+    p
+      :font-size 1.2em
+      :line-height 1.4em
+      :margin 1em 0
+    pre
+      white-space: pre
+      white-space: pre-wrap
+      white-space: pre-line
+      word-wrap: break-word
+      padding: 1.5em
+    q
+      &:before, &:after
+        content: ''
+        content: none
+    small
+      font-size: 85%
+    strong, th
+      font-weight: bold
+    sup, sub
+      font-size: 75%
+    sup
+      :bottom 1ex
+    sub
+      :top .2ex
+    table 
+      border-collapse: collapse
+      border-spacing: 0
+      td
+        vertical-align: top
+      tfoot
+        tr
+          td
+            :text-align center
+            :font
+              :size 1.3em
+            p
+              :font
+                :size 1em
+            a
+              :text-decoration none
+  ::-moz-selection, ::selection
+    background: $blue
+    color: #fff
+    text-shadow: none

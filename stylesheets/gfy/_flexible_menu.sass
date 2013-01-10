@@ -1,0 +1,210 @@
+=flex-nav($bar-width: collapse, $spacing: default, $round-corners: 5px, $text-color: #000, $bg-color: #ccc, $alignment: center)
+
+  @if $bg-color == none
+    $bg-color: rgba(0, 0, 0, 0)
+
+  :list-style none outside
+  :border 1px solid
+  :border-color rgba(0, 0, 0, 0.2)
+  :background-color $bg-color
+  @include border-radius($round-corners)
+  @include background(linear-gradient(top, lighten($bg-color,15%), $bg-color))
+  @include single-text-shadow(rgba(0, 0, 0, 0.5), 0, -1px, 1px)
+  //@include single-box-shadow(rgba(0, 0, 0, 0.2), 0, 1px, 1px, 0)
+
+
+  li
+    :text-align center
+    :white-space nowrap
+    :display table-cell
+    :border-right 1px solid
+    :border-right-color rgba(0, 0, 0, 0.2)
+
+    &:last-child a
+      @include border-right-radius($round-corners - 0.2em)
+
+    &:first-child a
+      @include border-left-radius($round-corners - 0.2em)
+
+    a
+      :display block
+      :padding 0 1em
+      :color $text-color
+      //:background-color $bg-color
+      //@include background(linear-gradient(top, lighten($bg-color,15%), $bg-color))
+      @include single-box-shadow(rgba(255, 255, 255, 0.1), 1px, 0, 0, 0, inset)
+
+      &:hover
+        :background-color darken($bg-color,10%)
+        @include background(linear-gradient(top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3)))
+        //@include background(linear-gradient(top, $bg-color, darken($bg-color,10%)))
+
+    &.selected a, & a:active
+      :background-color darken($bg-color,20%)
+      @include background(linear-gradient(top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)))
+      @include single-box-shadow(rgba(0, 0, 0, 0.2), 0, 3px, 16px, 0, inset)
+      //@include background(linear-gradient(top, darken($bg-color, 20%), darken($bg-color, 10%)))
+
+      -webkit-background-clip: padding-box
+
+    li a
+      @include box-shadow(rgba(0, 0, 0, 0) 0 0 0 0 inset)
+
+  html.ie7 &, html.ie6 &
+    li
+      :display inline-block
+      :width auto
+      :zoom 1
+      :*display inline
+
+      a
+        :padding 1em
+
+  @if $bar-width == collapse
+    :display inline-block
+    :width auto
+
+    @include inline-block-fix
+
+    li:last-child
+      :border none
+
+  @if $bar-width == expand
+    :width 100%
+    :display block
+
+    html.ie7 &
+      li:last-child
+        :border-right 1px solid
+
+    @if $spacing == default
+      li:last-child a
+        @include border-right-radius(0)
+
+    @else
+      li:last-child
+        :border none
+
+  //$spacing = default, fill, fill-fixed-width
+  //default does not stretch the buttons to the end of the box
+  //fill stretches buttons to the end of the box
+  //fill-fixed-width stretches buttons to the end of the box but keeps the width the same for all buttons
+
+  @if $spacing == fill-fixed-width
+    :display table
+
+    li
+      :width 10%
+
+      &:last-child
+        :border none
+
+  @if $spacing == fill
+    :display table
+
+    li:last-child
+      :border none
+
+  @if $alignment == center
+    :margin 0 auto
+
+  @if $alignment == default
+    :margin 0
+
+
+=flex-nav-dropdowns($theme: dark)
+
+  @if $theme == light
+    li .dropdown-wrapper
+      ul, html.ie7 & ul, html.ie6 & ul
+        :background #ebebeb
+        :border 1px solid rgba(0, 0, 0, .5)
+        @include background(linear-gradient(#ebebeb, #ebebeb))
+        @include single-text-shadow(rgba(255, 255, 255, 1), 0, 1px, 1px)
+        &:before
+          :content url("/images/dropdown-arrow-light.png")
+
+        li a
+          :color #333
+
+  @else
+    li .dropdown-wrapper
+      ul, html.ie7 & ul, html.ie6 & ul
+        :border 1px solid #333
+        :background #333
+        @include background(linear-gradient(#333, #333))
+        @include single-text-shadow(rgba(0, 0, 0, 1), 0, -1px, 1px)
+
+        &:before
+          :content url("/images/dropdown-arrow.png")
+
+        li a
+          &:hover
+            :color #fff
+
+  li
+    .dropdown-wrapper
+      :position relative
+
+      ul, html.ie7 & ul, html.ie6 & ul
+        &:before
+          :position relative
+          :top -19px
+          :height 0
+
+        :display none
+        :position absolute
+        :width 180px
+        :margin
+          :top 5px
+          :left -90px
+
+        html.ie7 &, html.ie6 &
+          :margin-top 0
+
+        :left 50%
+        :padding 5px 0
+        @include box-shadow(rgba(0, 0, 0, 0.5) 0 0 10px, rgba(255, 255, 255, 0.2) 0 1px 0 0 inset)
+        @include border-radius(5px)
+
+        li
+          :width 100%
+          :border none
+          :display block
+
+          &:first-child
+            :margin-top -15px
+
+            html.ie7 &, html.ie6 &
+              :margin-top 0
+
+          &:first-child, &:last-child
+
+            a
+              @include border-radius(0)
+
+          a
+            :line-height 1.6em
+            :display block
+            :padding 0.5em 1em
+            :height auto
+            :background transparent !important
+
+            &:hover
+              :background-image none !important
+              :background-color rgba(255, 255, 255, 0.1) !important
+
+            &:active
+              :background-color rgba(0, 0, 0, 0.5) !important
+
+
+    &:hover, & a:hover
+      ul, html.ie7 & ul, html.ie6 & ul
+        :display list-item
+
+    html.ie7 &
+      ul li
+        :display block
+
+        a
+          :padding 0.5em 0

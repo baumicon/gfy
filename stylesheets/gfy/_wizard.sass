@@ -1,0 +1,23 @@
+=wizard
+  :border 1px solid
+  :text-align center
+  :margin-bottom 1em
+  :background-color $lighter_form_color
+  :border-color $darker_form_color
+  p
+    :font-size 1.1em
+    span
+      :padding .5em
+      :line-height 3em
+      &.disabled
+        :color #999
+        :border none
+      &.current
+        :border 1px solid
+        +text-shadow($highlight_text_shadow)
+        :border-color $highlight_border_color
+        :background $highlight_background_color
+        :color $highlight_color
+      a:visited
+        :color #377DF7
+

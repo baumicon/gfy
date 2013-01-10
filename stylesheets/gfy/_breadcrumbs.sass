@@ -1,0 +1,80 @@
+//$mac_green
+=breadcrumbs($background_color: #E7F0F9, $background_image: "/images/breadcrumbs-divider.png", $breadcrumb_background_color: #DDD, $breadcrumb_background_image: "/images/breadcrumbs-divider.png", $ie6_breadcrumb_background_image: "/images/breadcrumbs-divider.gif", $border_color: #AAB3BD, $border_radius: 0, $text_color: #666)
+  +border-radius($border_radius)
+  :font
+    :size 1.1em
+    :weight bold
+    
+  :border 1px solid
+  :margin-bottom 2em
+  
+  :background-color $background_color
+  :border-color $border_color
+  +text-shadow(#fff 0 1px 0)
+  :color darken($text_color, 18%) //#307046
+  
+  .border
+    +border-radius($border_radius)
+    :border 1px solid
+    :overflow hidden
+    :z-index 100
+    :border-color #FFF
+  .breadcrumb
+    :display inline-block
+    &.last
+      :margin-right 1em
+      
+      a
+        :background-image url($background_image)
+    a
+      :font
+        :size 1em
+        :weight bold
+      :text-decoration none
+      
+      :margin-right -.3em
+      :padding 0 2em 0 1em
+      
+      :color $text_color
+      :background
+        :color $breadcrumb_background_color
+        :image url($breadcrumb_background_image) 
+        :position right center
+        :repeat no-repeat
+      .icon
+        :display block
+        :position relative
+        :width 2.5em
+        img
+          :position absolute
+          :top 0
+          :bottom 0
+          :margin auto
+          //:vertical-align middle
+    a, a.icon
+      :line-height 2.8em
+      :height 2.8em
+      :display block
+    a:hover
+      :text-decoration underline
+    a.icon:hover
+      :text-decoration none
+  html.ie6 &
+    .breadcrumb
+      :margin-top 0
+      :display inline
+      :height 2.8em
+      :line-height 2.8em
+      a
+        :background url($ie6_breadcrumb_background_image) right center no-repeat
+        :display inline-block
+  html.ie7 &
+    .border
+      :height 2.8em
+    .breadcrumb
+      :margin-top 0
+      :display inline
+      :height 2.8em
+      :line-height 2.8em
+      a
+        :display inline-block

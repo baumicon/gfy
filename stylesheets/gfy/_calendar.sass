@@ -1,0 +1,58 @@
+=calendar
+  :font bolder 30px/60px "Arial Black", Arial, Helvetica, sans-serif
+  :text-align center
+  :position relative
+  :margin .5em
+  :padding-top 5px
+  :float left
+  :width 80px
+  +border-radius(3px)
+  :color #333
+  :background #EDEDEF
+  @include background-image(linear-gradient(#EDEDEF,#CCCCCC))
+  +text-shadow(#fff)
+  +box-shadow(#777 0 2px 4px)
+  em
+    :font normal bold 11px/30px Arial, Helvetica, sans-serif
+    :display block
+    +border-bottom-right-radius(3px)
+    +border-bottom-left-radius(3px)
+    :border 1px solid #A13537
+    :border-top-color #772021
+    :color #FFF
+    +text-shadow(#772021 0 -1px 0)
+    :background #B54B4D
+    @include background-image(linear-gradient(#B54B4D,  #A13537))
+    &:before, &:after
+      :content ''
+      :float left
+      :position absolute
+      :top -5px
+      :width 4px
+      :height 14px
+      :background #DADADA
+      @include background-image(linear-gradient(#FFFFFF, #AAAAAA))
+      +box-shadow(#777 0 2px 4px)
+      :z-index 2
+      +border-radius(2px)
+    &:before
+      :left 13px
+    &:after
+      :right 13px
+  &:before, &:after
+    :content ''
+    :float left
+    :position absolute
+    :top 5px
+    :width 8px
+    :height 8px
+    :background #111111
+    :z-index 1
+    +border-radius(10px)
+    +box-shadow(#FFF 1px 1px 0)
+  &:before
+    :left 11px
+  &:after
+    :right 11px
+  html.ie6 &
+    +double-margin-fix

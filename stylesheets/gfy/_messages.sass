@@ -1,0 +1,66 @@
+//body
+=messages
+  &.flash
+    :background
+      :position center $flash_full_height
+    #error, #notice
+      :top 0 !important
+    #message
+      :top  $flash_full_height !important
+    #container
+      :top  $flash_full_height !important
+  &.sticky-message
+    :background
+      :position center $flash_full_height
+    #container
+      :top  $flash_full_height !important
+    &.flash
+      :background
+        :position center ($flash_full_height + $flash_full_height)
+      #error, #notice
+        :top 0 !important
+      #message
+        :top  $flash_full_height !important
+      #container
+        :top ($flash_full_height + $flash_full_height) !important
+  #error, #message, #notice
+    //l
+    :text-align center
+    :height  $flash_height
+    :line-height  $flash_height
+    :overflow hidden
+    :width 100%
+    :border-bottom 1px solid
+    :border-top 1px solid
+    :z-index 10
+    //c
+    :text-shadow 0.1em 0.1em #fff
+    :border-top-color #FFF
+    p
+      :font
+        :weight bold
+        :size 1.1em
+      :padding 0 1em
+      :margin 0
+      :line-height 3.4em
+    .icon
+      :width 3.8em
+      :height 2.7em
+      :margin 0 0 .5em 0
+      :vertical-align middle
+  #error
+    :background #FFD1D2
+    // url(/images/flash-background.png) bottom center repeat-x
+    :color #A01111
+  #message
+    :background
+      :color  $mac_yellow
+      //:image url(/images/flash-background.png)
+      :position bottom center
+      :repeat repeat-x
+    :color #502E17
+    :border-bottom-color #AA8E38
+  #notice
+    :background #C0FCD5
+    // url(/images/flash-background.png) bottom center repeat-x
+    :color #2D8169

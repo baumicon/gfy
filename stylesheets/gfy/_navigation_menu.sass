@@ -1,0 +1,217 @@
+=navigation_menu_bar($base-color, $text-color)
+  ul
+    $top-gradient: lighten($base-color, 15%)
+    $outer-border: darken($base-color, 20%)
+    $inner-border: lighten($base-color, 15%)
+    $hover-bg: darken($base-color, 20.05%)
+
+    :letter-spacing -0.2em
+
+    :display block
+    :border 1px solid
+    +border-radius
+
+    :border-color $outer-border//#414141
+    :background-color $base-color//#6b6b6b
+    @include background-image(linear-gradient($top-gradient,$base-color))
+
+    //linear-gradient(color-stops(#929293,#6b6b6b))
+    +text-shadow($outer-border 0 1px 0)
+
+    li
+      :letter-spacing normal
+      :display inline-block
+      :border-right 1px solid
+      :position relative
+
+      :border-right-color $outer-border//#414141
+
+
+      a
+        :font-size 1.3em
+        :line-height 2.5em
+        :text-decoration none
+
+        :display block
+        :padding 0 1em
+        :margin 0
+        :border 1px solid
+        :height 2.5em
+
+        :color $text-color//white
+        :border-color $inner-border//!inner-border-color//#929293
+
+      &:hover
+        :background-color $hover-bg//#3a3a3a
+        a
+          :border-color $hover-bg
+        ul li a
+          :border-color darken($hover-bg, 3%)//#323233
+
+      ul
+        :display none
+        :position absolute
+        :width 200px
+        :left -1px
+        +border-radius(0)
+        :margin 0
+
+        li
+          :width 100%
+          :margin-left 0
+          :border none
+
+          :background-color $hover-bg
+
+          a
+            :line-height 1.6em
+
+            :display block
+            :padding 0.5em 1em
+            +border-radius(0)
+            :height auto
+
+            &:hover
+              :background-color $base-color
+
+      &:hover, li a:hover
+        ul
+          :display block
+
+  html.ie6 &, html.ie7 &
+    li
+      :display inline !important
+      a
+        :display inline-block !important
+      ul
+        :top 3.5em
+        a
+          :display block !important
+
+=navigation_menu_pipe_left
+  :margin 0
+  :padding 0
+  :white-space nowrap
+
+  li, a, span
+    :float left
+
+  li
+    :margin 0
+    :padding 4px 0
+    :list-style-type none
+
+    :padding 0 8px
+    :border-right 1px solid
+    :border-right-color #999
+
+    &.last
+      :border-right 0 none
+=navigation_menu_tabs($font_size: 1.1em, $text_align: center, $height: 3.5em, $border_radius: .65em, $background_color: #FFF, $border_top_color: #FFF, $border_bottom_color: #EEE, $active_background_color: #EEE, $active_border_color: #8E8E8E, $active_color: #333, $inactive_background_color: #C0C0C0, $inactive_border_color: #CCC, $inactive_color: #666)
+  :font-size $font_size
+  :height $height
+  :border-top 1px solid
+  :border-bottom 1px solid
+  :z-index 1
+  :padding 0
+  :margin 0
+  :padding-bottom .5em
+  :background $active_background_color
+  :border-top-color $border_top_color
+  :border-bottom-color $border_bottom_color
+  //:float left
+  :width 100%
+  :overflow visible
+  :position relative
+  //:margin-bottom 3em
+  ul
+    //l
+    :position relative
+    //:display block
+    //@if $text_align == center
+    //  :left 50%
+    :background $background_color
+    :margin 0
+    :padding 0
+    :border-bottom 1px solid
+    :text-align $text_align
+    :border-bottom-color $active_border-color
+    li
+      :line-height $height - .4em
+      :height $height - .4em
+      :border 1px solid
+      :border-bottom none
+      :display inline-block
+      :position relative
+      //@if $text_align == center
+      //  :right 50%
+      :margin .3em .2em 0 .2em
+      :padding 0
+      :border-color $inactive_border_color
+      +border-top-right-radius($border_radius)
+      +border-top-left-radius($border_radius)
+      //:background #333
+      &.current
+        :border-color $active_border_color
+        span, a
+          :height $height - .4em
+          :font
+            :weight bold
+          :color $active_color
+          //:background $active_background_color
+          :border-color lighten($inactive_background_color, 30%)
+          :border-bottom-color $active_background_color
+          :background-color $active_background_color
+          @include background-image(linear-gradient(lighten($active_background_color, 10%),$active_background_color))
+        a:hover
+          :border-bottom-color $active_background_color
+          :background-color $active_background_color
+          @include background-image(linear-gradient(lighten($active_background_color, 10%),$active_background_color))
+      a, span
+        :display block
+        :margin 0
+        :position relative
+        :height $height - .56em
+        :border 1px solid
+        :text-decoration none
+        :padding 0 .8em
+        +border-top-right-radius($border_radius)
+        +border-top-left-radius($border_radius)
+      a
+        :color $inactive_color
+        :border-color lighten($inactive_background_color, 30%)
+        :border-bottom-color $inactive_background_color
+        :background-color $inactive_background_color
+        @include background-image(linear-gradient(lighten($inactive_background_color, 10%),$inactive_background_color))
+        &:hover
+          :border-color lighten($inactive_background_color, 20%)
+          :border-bottom-color lighten($inactive_background_color, 5%)
+          :background-color lighten($inactive_background_color, 5%)
+          @include background-image(linear-gradient(lighten($inactive_background_color, 15%),lighten($inactive_background_color, 5%)))
+        html.ie6 &
+          :color $inactive_color !important
+  html.ie6 &
+    :border-top none
+    ul
+      :overflow hidden
+      li
+        :margin-top 0
+        :margin-bottom 0
+        :zoom 1
+        :display inline
+        :position relative
+        a, span
+          :display inline-block
+          :vertical-align bottom
+        &.current
+          a, span
+            :position relative
+            :margin-bottom -1px
+  html.ie7 &
+    ul
+      li
+        :display inline
+        a, span
+          :display inline-block
+        a.current, span
+          :padding-bottom .3em

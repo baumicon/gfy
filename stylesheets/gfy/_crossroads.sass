@@ -1,0 +1,61 @@
+=crossroads
+  :position relative
+  //:border 1px solid
+  //:float left
+  //:clear left
+  //:left 50%
+  :margin 2em 0
+  :padding 0
+  :text-align center
+  .choice
+    //l
+    :margin  .2em .1em .2em 0
+    :display inline-block
+    //:float left
+    :width 13.5em
+    //:padding-top 14.5em
+    :border .5em solid
+    +border-radius(.6em)
+    :position relative
+    //:right 50%
+    //c
+    :border-color #F7FCF5
+
+
+    :white-space nowrap
+    +text-shadow(#FFF)
+    a
+      :display block
+      :padding 1em .8em
+      //:height 15em
+      //:position absolute
+      :top 0
+      :right 0
+      :left 0
+      :bottom 0
+      //:margin-top -10em
+      //t
+      :font
+        :weight bold
+        :size 1.2em
+      :line-height 1.4em
+      :text-decoration none
+      :border 1px solid
+      +border-radius(.6em)
+
+      :color #2D8169
+      :border-color #ADDDC7
+      :background #CFF9D6
+      @include background-image(linear-gradient(lighten(#CFF9D6, 8%), #CFF9D6))
+      &:hover
+        :background #FCF8D5
+        @include background-image(linear-gradient(lighten(#FCF8D5, 8%), #FCF8D5))
+        :color #645117
+        :border-color #E7DE8F
+      img
+        :margin .5em 0
+    &.last
+      :margin-right 0
+      :margin-bottom 2em
+    html.ie6 &, html.ie7 &
+      :display inline

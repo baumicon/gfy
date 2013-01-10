@@ -1,0 +1,67 @@
+=progress_bar
+  :margin 2em 2em 1em 2em
+  //:border 1px solid #999
+  //:border-top-color #EEE
+  //:border-left-color #EEE
+  :background #F4F4F4
+  @include background-image(linear-gradient(#EEEEEE, #F4F4F4))
+  :position relative
+  +border-radius
+  &:before
+    :content ''
+    :float left
+    :position absolute
+    :top 1px
+    :bottom 1px
+    :left 1px
+    :right 1px
+    :background #444444
+    @include background-image(linear-gradient(#000000, #444444))
+    :z-index 0
+    +border-radius
+  html.ie6 &, html.ie7 &
+    :border 1px solid #444444
+    :background #444444
+  p
+    :font
+      :size 2em
+      :weight bold
+    +text-shadow(#006635 1px 1px)
+    :color #FFF
+    :position relative
+    :display block
+    :text-align center
+    :height 2em
+    :line-height 2em
+    :margin 0
+    :z-index 3
+    +border-radius
+    em
+      :padding 0 .5em
+    html.ie6 &, html.ie7 &
+      :background #009053
+    &:before
+      :content ''
+      :float left
+      :position absolute
+      :top 2px
+      :bottom 50%
+      :left 2px
+      :right 2px
+      :background #00B473
+      :z-index -1
+      +border-top-left-radius(3px)
+      +border-top-right-radius(3px)
+    &:after
+      :content ''
+      :float left
+      :position absolute
+      :top 50%
+      :bottom 2px
+      :left 2px
+      :right 2px
+      :background #009053
+      @include background-image(linear-gradient(#009053, #00B473))
+      :z-index -2
+      +border-bottom-left-radius(3px)
+      +border-bottom-right-radius(3px)

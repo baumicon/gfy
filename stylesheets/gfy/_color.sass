@@ -1,0 +1,13 @@
+=gfy-text-color($background_color: #444)
+  @if lightness($background_color) > lightness(#AAA)
+    //if button background is lighter than #AAA show dark text with light text shadow
+    @if $background_color == #FFF
+      color: #555
+      +text-shadow(0 1px 1px #FFF)
+    @else
+      color: darken($background_color, 50%)
+      +text-shadow(0 1px 1px rgba(255,255,255,0.75))
+  @else
+    //if button background is darker than #AAA show light text with dark text shadow
+    color: lighten($background_color, 75%)
+    +text-shadow(0 1px 1px rgba(0,0,0,0.75))

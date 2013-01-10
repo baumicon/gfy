@@ -1,0 +1,53 @@
+=pagination
+  :white-space nowrap
+  :margin-bottom 2em
+  a, span
+    :padding .3em .7em
+    :margin 0
+    :border-top 1px solid
+    :border-bottom 1px solid
+    // fix for inline elements
+    :margin 0 -.2em
+  span
+    :color #999
+  a
+    :text-decoration none
+    //c
+    :background-color #E4E4E4
+    :border-color #999
+    //:border-top-color #FFF
+    //:border-left-color #FFF
+    :color #333
+    &:hover
+      :background $mac_yellow
+  .page_info
+    :padding-top .8em
+  //.prev_page, .next_page
+  .prev_page
+    :border-left 1px solid
+    :border-color #999
+    :-moz-border-radius-topleft .3em
+    :-moz-border-radius-bottomleft .3em
+    :-webkit-border-top-left-radius .3em
+    :-webkit-border-bottom-left-radius .3em
+  .next_page
+    :border-right 1px solid
+    :border-color #999
+    :-moz-border-radius-topright .3em
+    :-moz-border-radius-bottomright .3em
+    :-webkit-border-top-right-radius .3em
+    :-webkit-border-bottom-right-radius .3em
+  .current
+    //:font-weight bold
+    :background #FFF
+  .disabled, .gap
+    :background #CCC
+    :text-shadow none
+  .gap
+    //:border none
+    //:color #333
+  table tfoot tr td &
+    :font
+      :size .8em
+    span.current
+      :font-weight bold

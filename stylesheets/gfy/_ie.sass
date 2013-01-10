@@ -1,0 +1,58 @@
+=has-layout-fix
+  // This makes ie6 get layout
+  display: inline-block
+  // and this puts it back to block
+  &
+    display: block
+
+=double-margin-fix
+  :display inline
+
+=inline-block-fix //IE7 does not support inline-block, this fix mimics that behavior for IE7
+  html.ie7 &, html.ie6 &
+    :zoom 1
+    :*display inline
+
+
+//=ie_button
+//  :filter progid:DXImageTransform.Microsoft.gradient(startColorstr='#F3F3F4', endColorstr='#B5BABA')
+//  &:hover
+//    :filter progid:DXImageTransform.Microsoft.gradient(startColorstr='#F3F3F4', endColorstr='#ababab')
+//=ie-7-tabs
+//  ul
+//    li
+//      :display inline
+//      a, span
+//        :display inline-block
+//      a.current, span
+//        :padding-bottom .3em
+//=ie-6-tabs
+//  :border-top none
+//  ul
+//    :overflow hidden
+//    li
+//      :margin-top 0
+//      :margin-bottom 0
+//      :zoom 1
+//      :display inline
+//      :position relative
+//      a, span
+//        :display inline-block
+//        :vertical-align bottom
+//      &.current
+//        a, span
+//          :position relative
+//          :margin-bottom -1px
+
+//=ie-nav-bar-fix
+//  li
+//    :display inline !important
+//    a
+//      :display inline-block !important
+//    ul
+//      :top 3.5em
+//      a
+//        :display block !important
+
+
+

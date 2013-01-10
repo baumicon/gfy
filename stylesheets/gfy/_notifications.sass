@@ -1,0 +1,40 @@
+=gfy-notifications
+  :width 100%
+  :text-align center
+  :z-index $zindexModal
+  :background $gray
+  +background(linear-gradient($gray, $black))
+  +gfy-text-color($gray)
+  //:padding-bottom 1em
+  +box-shadow(#AAA 0 .1em 0, #666 0 .4em 0, rgba(0, 0, 0, 1) 0 .5em 2px)
+  html.ie8 &
+    :border-bottom 2px solid #AAA
+    :z-index 3
+  html.gfy-desktop &
+    :position absolute
+  .gfy-flash-close
+    +gfy-button($gray)
+    :margin .5em 0 .8em 0
+  .gfy-flash
+    :border-top 1px solid rgba(255,255,255,0.85)
+    :border-bottom 1px solid rgba(0,0,0,0.65)
+    :padding 0 1em
+    &.gfy-error, &.gfy-alert
+      :background $pink_light
+      +gfy-text-color($error_background_color)
+      +background(linear-gradient(lighten($pink_light, 3%), $pink_light))
+      .list-nav.inset
+        border: 1px solid rgba(211,007,020,0.3)
+      html.ie8 &
+        :border 1px solid darken($error_background_color, 20%)
+    &.gfy-success, &.gfy-notice
+      :background $mint_light
+      +background(linear-gradient(lighten($mint_light, 3%), $mint_light))
+      +gfy-text-color($mint_light)
+      :color $green
+      html.ie8 &
+        :border 1px solid darken($mint_light, 20%)
+    p
+      :font-weight bold
+      :text-align center
+      :margin 1em

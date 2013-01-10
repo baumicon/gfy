@@ -1,0 +1,145 @@
+=gfy-button($button_background: #FFF, $button_radius: .4em, $size: 1.4em, $type: inline-block, $width: auto, $height: auto)
+  $shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.5) 0 1px 0, $button_background 0 1em 0 0 inset
+  :font
+    :size $size
+    :weight bold
+  
+  :width $width
+  display: $type
+  //+ie7-inline-block
+  @if $height == auto
+    :line-height $size
+  @else
+    :line-height $height
+  @if $type == block
+    :margin-bottom .2em
+    :padding 0
+  @else
+    :margin-bottom 0
+    :padding .4em 1em .4em
+  // For input.btn
+  //font-size: $baseFontSize
+  //line-height: $baseLineHeight
+  text-align: center
+  text-decoration: none
+  vertical-align: middle
+  :background $button_background
+  +background(linear-gradient($button_background, darken($button_background, 5%), $button_background ))
+  //background-position: 0 -1.5em
+  border: 1px solid rgba(0,0,0,0.3)
+  //darken($button_background, 20%)
+  border-bottom-color: rgba(0,0,0,0.4)
+  //darken($button_background, 30%)
+  +border-radius($button_radius)
+  +box-shadow($shadow)
+  cursor: pointer
+  +gfy-text-color($button_background)
+  html.ie8 &
+    :background $button_background
+    :border 1px solid darken($button_background, 10%)
+  &:visited
+    +gfy-text-color($button_background)
+  &:hover
+    +gfy-text-color($button_background)
+    text-decoration: none
+    background-color: darken($button_background, 10%)
+    //background-position: 0 -2.1em
+    // transition is only when going to hover, otherwise the background
+    // behind the gradient (there for IE<=9 fallback) gets mismatched
+    //+transition(background-position 0.3s penner("easeInOutQuint"))
+  &.small
+    :font
+      :size $size - .3em
+      :weight bold
+  &.selected
+    :border 1px solid rgba(255,255,255,0.65)
+    //:border-left-color rgba(0, 0, 0, 0.5)
+    //:border-top-color rgba(0, 0, 0, 0.7)
+    //:border-bottom-color darken($button_background, 15%)
+    +background(linear-gradient(darken($button_background, 30%), darken($button_background, 5%)))
+    +box-shadow(inset -1px -1px 0 rgba(0, 0, 0, 0.2), inset 1px 1px 0 rgba(0, 0, 0, 0.3), inset 2px 3px 2px rgba(0, 0, 0, 0.3))
+  &.disabled, &[disabled]
+    cursor: default
+    background-image: none
+    $disabled_background: adjust-saturation($button_background, -25%)
+    @if lightness($disabled_background) > lightness(#AAA)
+      //if button background is lighter than #AAA show dark text with light text shadow
+      :color adjust-lightness($disabled_background, -15%)
+    @else
+      :color adjust-lightness($disabled_background, 15%)
+    +background(linear-gradient($disabled_background, $disabled_background))
+    //+opacity(0.65)
+    +box-shadow(none)
+=button
+  :display inline-block
+  //:float left
+  :white-space nowrap
+  width: auto
+  max-width: auto
+  :height 2em !important
+  :line-height 2em !important
+  padding: 0 .7em !important
+  overflow: visible
+  border: 1px solid
+  font-weight: bold !important
+  +border_radius(.5em)
+  text-decoration: none
+  border-color: #797979
+  color: #353535
+  :background #E4E4E4 
+  @include background-image(linear-gradient(#F3F3F4,#B5BABA))
+  +box-shadow(#FFF 1px 1px 1px)
+  text-shadow: 1px 1px #EEE
+  :cursor default
+  &:hover
+    background: $highlight_background_color
+    color: $highlight_color
+  &:visited
+    :color #353535
+  html.ie6 &, html.ie7 &, html.ie8 &
+    :filter progid:DXImageTransform.Microsoft.gradient(startColorstr='#F3F3F4', endColorstr='#B5BABA')
+    &:hover
+      :filter progid:DXImageTransform.Microsoft.gradient(startColorstr='#F3F3F4', endColorstr='#ababab')
+  html.ie7 &
+    :padding auto !important
+    :padding-bottom 2em
+    :height auto !important
+=pill-button
+  //t
+  :line-height 1.4em
+  :text-decoration none
+  //l
+  +border-radius(.9em)
+  :border none
+  //:float left
+  :margin 0 .3em 0 0
+  :padding .3em .9em .4em .9em
+
+  //c
+  :color #FFF
+  :text-shadow none
+  &:hover
+    :color #FFF
+  &:visited
+    :color #FFF
+  &.delete
+    //c
+    :background  $mac_red
+    &:hover
+      :background  $mac_red_hover
+  &.standard
+    :background #999
+  &.standout
+    :background  $mac_blue
+    &:hover
+      :background  $mac_blue_hover
+  &.add
+    :background  $mac_green
+    //:background #54AC59
+    //:background #EAFCBF
+    //:color #2E662D
+    &:hover
+      :background  $mac_green_hover
+  &.warning
+    :background #FFF
+    :color  $mac_red

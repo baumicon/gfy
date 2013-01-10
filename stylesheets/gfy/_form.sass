@@ -1,0 +1,1513 @@
+=gfy-field-required
+  + .gfy-validate
+    :display block
+    .gfy-valid
+      :display none
+    //.gfy-invalid
+      i
+        :display none
+=gfy-field-valid
+  + .gfy-validate
+    .gfy-valid
+      :display inline
+    .gfy-invalid
+      :display none
+=gfy-field-invalid
+  :box-shadow none
+  &:focus
+    + .gfy-validate
+      .gfy-invalid
+        :color $red
+        i
+          :display inline
+  &.blur
+    + .gfy-validate
+      .gfy-invalid
+        :color $red
+        i
+          :display inline
+  + .gfy-validate
+    .gfy-valid
+      :display none
+    .gfy-invalid
+      :display inline
+      :color $black
+=error
+  &.error
+    +text-shadow($error_text_shadow)
+    :background $error_background_color
+    :color $error_color
+    :border-color $error_border_color
+    ol
+      :background-color $error_background_color
+      li
+        :border-color $error_background_color
+    p
+      :color $error_color
+      +text-shadow($error_text_shadow)
+    input, textarea, li input, li textarea
+      :border-color $error_border_top_color
+      :border-right-color $error_border_sides_color
+      :border-left-color $error_border_sides_color
+      :border-bottom-color $error_border_bottom_color
+    &.highlight
+      :background $highlight_background_color
+      :color $error_color
+      :border-color $error_border_color
+      input, textarea, li input, li textarea
+        :border-color $error_border_top_color
+        :border-right-color $error_border_sides_color
+        :border-left-color $error_border_sides_color
+        :border-bottom-color $error_border_bottom_color
+    label
+      :border-color $error_background_color
+      :color $error_color
+      +text-shadow($error_text_shadow)
+
+=highlight
+  &.highlight
+    +text-shadow($highlight_text_shadow)
+    :border-color $highlight_border_color
+    :background $highlight_background_color
+    :color $highlight_color
+    :font
+      :weight normal
+    p
+      :color $highlight_color
+      +text-shadow($highlight_text_shadow)
+
+    input, textarea, li input, li textarea
+      :background #FFFFFF
+      :border-color $highlight_border_top_color
+      :border-right-color $highlight_border_sides_color
+      :border-left-color $highlight_border_sides_color
+      :border-bottom-color $highlight_border_bottom_color
+    label
+      :border-color $highlight_background_color
+      :color $highlight_color
+      +text-shadow($highlight_text_shadow)
+    ol
+      :background-color $highlight_background_color !important
+      li
+        :border-color $highlight_background_color
+        &.delete
+          :border-color $error_border_color
+          :background-color $error_background_color
+          label
+            :color  $error_color
+ 
+=form-color( $form_background_color: #EEE, $form_text_color: #333)
+  :background $form_background_color
+  :color $form_text_color
+  +text-shadow(lighten($form_background_color, 20%))
+=gfy-field-color( $form_background_color: transparent, $form_text_color: #333)
+  //$lighter_form_color: lighten($form_background_color, 5%)
+  //$lightest_form_color: lighten($form_background_color, 20%)
+  //$darker_form_color: darken($form_background_color, 30%)
+  ol
+    li
+      //:color $form_text_color
+      //+text-shadow($lightest_form_color)
+      //:border-color $form_background_color
+      //&.string input, &.password input, &.numeric input, &.text textarea
+      input, textarea
+        width: $input_width
+        :border 1px solid
+        +border-radius(0)
+        :margin 0
+        //:border .1em solid
+        //c
+        :border-bottom-color #DDD
+        :border-left-color #C3C3C3
+        :border-right-color #C3C3C3
+        :border-top-color #7C7C7C
+        //@include background-image(linear-gradient(white, blue 33%, black 67%))
+        //:background #FFFFFF url(/images/text-field-background.gif) top repeat-x
+      +error
+      +highlight
+      &.children
+        //:border-color $darker_form_color
+        //:background $lighter_form_color
+        li
+          //:border-color $darker_form_color
+          +error
+          +highlight
+  &.contain
+    //:background-color $lighter_form_color
+    //:border-color $darker_form_color
+    legend span
+      //:background $lighter_form_color
+      //:border-color $darker_form_color
+      //:color $form_text_color
+    ol
+      //:background $lighter_form_color
+      //:border-color $lighter_form_color
+      li
+        //:border-color $lighter_form_color
+        +error
+        +highlight
+        &.delete
+          :background $error_background_color
+          :color $error_color
+          :border-color $error_border_color
+        &.cycle-odd
+          :background #FFFFFF
+          :border-color #EEEEEE
+          +error
+          +highlight
+          ol
+            :background #FFFFFF
+            li
+              :border-color #FFFFFF
+              &.delete
+                :border-color $error_border_color
+
+        &.cycle-even
+          :background #F0F4FA
+          :border-color #C6DCFF
+          +error
+          +highlight
+          ol
+            :background #F0F4FA
+            li
+              :border-color #F0F4FA
+              &.delete
+                :border-color $error_border_color
+=field-color( $form_background_color: transparent, $form_text_color: #333)
+  $lighter_form_color: lighten($form_background_color, 5%)
+  $lightest_form_color: lighten($form_background_color, 20%)
+  $darker_form_color: darken($form_background_color, 30%)
+  ol
+    li
+      :color $form_text_color
+      +text-shadow($lightest_form_color)
+      :border-color $form_background_color
+      +error
+      +highlight
+      &.children
+        :border-color $darker_form_color
+        :background $lighter_form_color
+        li
+          :border-color $darker_form_color
+          +error
+          +highlight
+  &.contain
+    :background-color $lighter_form_color
+    :border-color $darker_form_color
+    legend span
+      :background $lighter_form_color
+      :border-color $darker_form_color
+      :color $form_text_color
+    ol
+      :background $lighter_form_color
+      :border-color $lighter_form_color
+      li
+        :border-color $lighter_form_color
+        +error
+        +highlight
+        &.delete
+          :background $error_background_color
+          :color $error_color
+          :border-color $error_border_color
+        &.cycle-odd
+          :background #FFFFFF
+          :border-color #EEEEEE
+          +error
+          +highlight
+          ol
+            :background #FFFFFF
+            li
+              :border-color #FFFFFF
+              &.delete
+                :border-color $error_border_color
+
+        &.cycle-even
+          :background #F0F4FA
+          :border-color #C6DCFF
+          +error
+          +highlight
+          ol
+            :background #F0F4FA
+            li
+              :border-color #F0F4FA
+              &.delete
+                :border-color $error_border_color
+=formtastic($padding: 2em)
+  form
+    :margin 0
+    :padding $padding
+    +form-color($form_default_background_color, $form_default_text_color)
+    a, button, input
+      &.button
+        :font-size 1.2em !important
+
+        border-color: #797979 !important
+        color: #353535 !important
+        :background #E4E4E4
+        @include background-image(linear-gradient(#F3F3F4,#B5BABA))
+        +box-shadow(#FFF 1px 1px 1px)
+        text-shadow: 1px 1px #EEE !important
+        &:hover
+          background: $highlight_background_color
+          color: $highlight_color
+        &:visited
+          :color #353535 !important
+    button
+      cursor: pointer
+      //margin: 0
+      //width: auto
+      //overflow: visible
+    ul, ol, li, fieldset, legend, input, textarea
+      :margin 0
+      :padding 0
+
+    fieldset
+      :border 0
+    //em, strong
+
+    ol, ul
+      :list-style none
+
+    abbr, acronym
+      :border 0
+      :font-variant normal
+    input, textarea, select
+      :font-family inherit
+      :font-size inherit
+      :font-weight inherit
+    input, textarea, label, select
+      :font
+        :family 'Lucida Grande', Arial, sans-serif
+        :size $input_text_size
+    input, textarea
+      :padding 2px
+    //input
+    //  &[type="radio"]
+    //    vertical-align: text-bottom
+    //  &[type="checkbox"]
+    //    vertical-align: bottom
+    //    html.ie7 &
+    //      vertical-align: baseline
+    //  html.ie6 &
+    //    vertical-align: text-bottom
+      &[type="button"], &[type="submit"], &[type="image"]
+        cursor: pointer
+    textarea
+      overflow: auto
+    label
+      :cursor pointer
+      :height 1.8em
+      :line-height 1.8em
+    select
+      :padding 1px 0
+    legend
+      span
+        :font
+          :size $input_text_size
+        :line-height 1.4em
+    fieldset
+      :clear both
+      :text-align left
+      //:display inline-block
+      &.contain
+        :border 1px solid
+        :margin 4em 0 2em 0
+        legend
+          width: $label_width
+          :font-weight bold
+          :position relative
+          span
+            :position absolute
+            :top -35px
+            :left -1px
+            :height 15px
+            :padding 10px 0
+            :width 100%
+            :text-align center
+            :border 1px solid
+            :border-bottom none
+        ol
+          :padding 2em
+          li
+            &.inline
+              ol
+                // CHANGE FOR LABEL
+                :margin-left 0
+                :padding-left 0
+                &.labeled
+                  :margin-left $label_width
+      &.inputs
+        ol
+          li
+            :border 1px solid
+        +field-color($form_default_background_color, $form_default_text_color)
+      &.buttons
+        padding-left: $label_width
+        ol
+          li
+            :float left
+            :display inline-block
+            :padding-right 5px
+            input
+              :margin-left 10px
+          li.right
+            :float right
+            :display inline
+      &.inline
+        :padding-left 0
+        ol li
+          :float left
+          :padding-left 1em
+          :padding-right 1em
+          :margin-right 1px
+          input
+            :margin 0
+          label
+            :width auto
+            :float none
+            :text-align left
+            :height 1.8em
+            :margin 0
+          p
+            &.inline-hints, &.inline-errors
+              :margin-left 0
+              :padding-left 0
+          &.country select, &.time_zone select, &.select select, &.date select, &.string input, &.password input, &.numeric input, &.text textarea, &.file input, &.email input, &.phone input
+            :width auto
+            :margin-left 0
+          &.check_boxes, &.radio
+            :float none
+            :display block
+            & fieldset ol, & fieldset ol
+              :margin-left 0
+              :float none
+              :width auto
+            li, li &
+              :float none
+              :display block
+            
+            
+          &.boolean
+            //:padding-left 0
+            :padding-right 1.5em
+            label
+              :padding-left 0
+          &.full-width
+            :height auto
+            :padding-right 1.5em
+            :position relative
+            :clear both
+            :float none
+            :right 0
+            br
+              //l
+              :display none
+            &.string input, &.password input, &.numeric input, &.text textarea
+              :width 100%
+              :float none
+      &:after
+        :content "."
+        :display block
+        :height 0
+        :clear both
+        :visibility hidden
+    .heading
+      :margin-bottom 3em
+    .errorExplanation, .error-explanation
+      :margin 0
+      :padding 2em 3em
+      :border 5px solid
+      background: $error_background_color
+      color: $error_color
+      border-color: $error_border_color
+      h2
+        :font
+          :size 1.6em
+          :weight bold
+        :letter-spacing -0.06em
+      p, li
+        :font-size 1.2em
+        :line-height 1.4em
+        :margin 1em 0
+        :text-align left
+      ul, ol
+        :padding-left 0
+        :margin 1.5em 0
+        :list-style-type decimal
+        li
+          :margin .5em 0
+  html[xmlns] &
+    form fieldset
+
+      :display block
+
+
+  * html &
+    fieldset
+      :height 1%
+
+
+  fieldset ol li
+    :margin-bottom .5em
+    :display block
+    :float none
+    :padding .8em 1em
+
+    &:after
+      :content "."
+      :display block
+      :height 0
+      :clear both
+      :visibility hidden
+
+
+  html[xmlns] &
+    fieldset ol li
+      :display block
+
+
+  * html &
+    fieldset ol li
+      :height 1%
+  fieldset.text
+    p
+      :font-size 1.2em
+    input, textarea, label, select
+      :font-size 1em
+      :margin-bottom .5em
+  form fieldset
+    ol li
+      label, fieldset legend.label label
+        :text-align right
+        :font-weight bold
+        :height auto
+        :margin-top .4em
+        :line-height 1.4em
+        .inline-hints
+          :font
+            :weight normal
+            :size .9em
+          :height auto
+      &.inline
+        //:width auto
+        //:float left
+        //:white-space nowrap
+        //p.inline-hints, p.inline-errors
+          //:padding-left 16px
+        input, select
+          //:width auto
+          //:float left
+        label
+          //:width auto
+          //:float left
+        ol
+          //padding-left: $label_width
+          :padding 0 5px 0 0
+          // CHANGE FOR LABEL
+          margin-left: $label_width
+          li
+            :padding 0
+            //:float left
+            :display inline-block
+            :clear none
+            &.block
+              :display block
+            &.boolean
+              :float left
+              :padding 0
+              label
+                :padding 0 0 0 5px
+              &.delete
+                :padding-right 1em
+                :margin-left 10px
+            &.parent
+              p.inline-hints
+                :border none
+                :clear left
+            &.child
+              input, select
+                :width auto
+              p.inline-hints, p.inline-errors, .filename p.label, .disabled p.label
+                :border none
+                :margin-left 0
+                :padding-left 10px
+              label
+                :border none
+              &.error
+                :padding-top .5em
+                :padding-bottom .5em
+                :padding-right 10px
+                :margin-right .5em
+                :display block
+                :float none
+                +error
+      //&.required, &.optional, &.error
+      label
+        :display block
+        width: $label_width
+        :float left
+        //padding-top: .2em
+        abbr
+          :color #FF0000
+      li label
+        :line-height 100%
+        :padding-top 0
+
+        input
+          :line-height 100%
+          :vertical-align middle
+          :margin-top -0.1em
+
+      fieldset
+        :position relative
+
+        legend
+          //position: absolute
+          width: $label_width
+          :padding-top 0.1em
+          :float left
+          span
+            :position absolute
+          &.label
+            span
+              :position static
+        ol
+          :float left
+          width: $input_width
+          :margin 0
+          //padding-left: $label_width
+
+          li
+            :padding 0
+            :border 0
+
+      p
+        &.inline-hints
+          :font-size 1.1em
+          :margin 0.5em 0 0 0
+          margin-left: $label_width
+          :padding-left 10px
+          label
+            :font-size 1em
+            :float none
+            :display inline
+        &.inline-errors
+          :font-size 1.1em
+          :font-weight bold
+          :text-transform uppercase
+          :margin 0.5em 0 0 0
+          margin-left: $label_width
+          :padding-left 10px
+          :clear left
+      .filename p.label, .disabled p.label
+        :font-size 1.3em
+        :margin 0
+        :display inline-block
+      ul.errors
+        :color #cc0000
+        :margin 0.5em 0 0 0
+        margin-left: $label_width
+        :list-style square
+
+        li
+          :padding 0
+          :border none
+          :display list-item
+
+      &.string input, &.password input, &.numeric input, &.text textarea
+        width: $input_width
+        :border 1px solid
+        :margin 0
+        //:border .1em solid
+        //c
+        :border-bottom-color #DDD
+        :border-left-color #C3C3C3
+        :border-right-color #C3C3C3
+        :border-top-color #7C7C7C
+        //@include background-image(linear-gradient(white, blue 33%, black 67%))
+        //:background #FFFFFF url(/images/text-field-background.gif) top repeat-x
+
+      &.inline
+        li.boolean label
+          :height 1.8em
+          :line-height 1.8em
+      &.check_boxes, &.radio
+        ol li label
+          :text-align left
+          :margin 0
+          :font
+            :size 1.1em
+            :weight normal
+      &.country select, &.time_zone select, &.select select, &.date select, &.datetime select, &.check_boxes fieldset ol, &.radio fieldset ol, &.string input, &.password input, &.numeric input, &.text textarea, &.file input, .filename p.label, .disabled p.label, &.email input, &.phone input
+        :margin-left 10px
+      fieldset
+        ol
+          //:border 1px solid
+          li
+            :margin-left 10px
+            h1, h2, h3, h4, h5, h6, p
+              :margin-top 0
+        legend.label
+          //:border 1px solid
+          label
+            :display block
+            :float none
+            :width auto
+            //:white-space pre-line
+      &.hidden
+        :display none
+      &.check_boxes
+        label
+          :width auto
+          :float none
+      &.boolean
+        label
+          padding-left: $label_width
+          :width auto
+          :margin 0
+        p.inline-hints
+          :margin 0
+          :display inline
+        input
+          :margin 0 5px 0 10px
+          :vertical-align baseline
+        &.full-width
+          input
+            :margin 0
+      &.form-text
+        fieldset
+          ol
+            li
+              ol
+                :float none !important
+                :width auto !important
+                :list-style decimal !important
+                :padding-left 2.2em
+                li
+                  :margin 0 0 0 0 !important
+                  //:list-style decimal !important
+                  :width auto !important
+                  :display list-item !important
+                  :font-size 1.2em
+                  ul
+                    :padding-left 2.2em
+                    :list-style circle !important
+                    li
+                      :display list-item !important
+                      //:list-style circle !important
+                      :margin 1em 0 !important
+                      :font-size 1em
+      &.radio fieldset ol, &.check_boxes fieldset ol
+        :margin-bottom -0.6em
+
+        li
+          :margin 0.6em 0 0.5em 0
+
+          label
+            :height auto
+            :width 100%
+            img
+              :vertical-align middle
+              :padding 1em
+              :border 1px solid #CCC
+              :background #FFF
+            input
+              :margin-right 0.5em
+              :margin-left -.1em
+      &.date fieldset ol li, &.time fieldset ol li, &.datetime fieldset ol li
+        :float left
+        :width auto
+        :margin 0 .3em 0 0
+
+      &.date fieldset ol li label, &.time fieldset ol li label, &.datetime fieldset ol li label
+        :display none
+
+      &.date fieldset ol li label input, &.time fieldset ol li label input, &.datetime fieldset ol li label input
+        :display inline
+        :margin 0
+        :padding 0
+    &.contain ol li
+      p
+        //&.inline-hints
+        &.inline-errors
+          :margin 0
+
+  html.ie6 &, html.ie7 &, html.ie8 &
+    :overflow hidden
+    form
+      fieldset
+        &.buttons
+          :padding-bottom 1.3em
+          ol
+            li
+              //:border 1px solid #000
+              //input
+              form
+                //:border 1px solid #000
+                :padding 0 !important
+                //+has-layout-fix
+            li.right
+              input, a
+                :float right
+        ol li
+          &.inline
+            ol
+              //:float left
+              :background none
+              li
+                &.boolean
+                  label
+                    :margin .2em 0 0 0
+                    :padding .2em 0 .2em 5px
+                    :float left
+                  input
+                    :border none
+                    :padding 0
+                    :background transparent
+                  //&.delete
+
+  html.ie6 &
+    form
+      fieldset.inputs ol li.inline ol li
+        :text-align left
+      fieldset
+        &.buttons
+          ol
+            li
+              a
+                :position relative
+              //input
+            //li.right
+        &.contain
+          legend
+            span
+              :top -37px
+              :left -8px
+        ol
+          li
+            :margin-left 0
+            :padding-left 0
+            fieldset ol li
+              :margin-left 0
+            &.radio fieldset legend.label label, &.check_boxes fieldset legend.label label
+              :text-align left
+            &.select
+              select
+                :margin-bottom 2px
+
+
+        ol li.inline
+          ol
+            :display inline-block
+            :margin-left 14%
+            li
+              :float left
+              ol
+                :margin-left 5px
+    form fieldset.inline
+      ol
+        li
+          :float left
+          :width 150px
+          //:width auto
+          &.string input, &.password input, &.numeric input, &.text textarea
+            :width auto
+
+          &.full-width
+            :float none
+            :width 90%
+            &.string input, &.password input, &.numeric input, &.text textarea
+              :width 100%
+          &.right
+            :float right
+  html.ie7 &
+    form
+      fieldset
+        ol li.inline
+          ol
+            :display inline-block
+            li
+              :float left
+          //input
+
+        ol li
+          fieldset legend.label label
+            :text-align left
+
+        &.contain
+          legend
+            span
+              :left -8px
+          ol
+            li
+              +has-layout-fix
+              //:display inline-block
+              &
+                display: block
+              &.radio fieldset legend.label label, &.check_boxes fieldset legend.label label
+                :text-align left
+
+  html.ie8 &
+    form
+      fieldset
+        //&.buttons
+          //ol
+            //li
+              //input
+            //li.right
+              //form
+        ol li
+          &.inline
+            ol
+              li
+                &.boolean
+                  label
+                    :margin .2em 0 0 0
+                    :float left
+                  //&.delete
+
+=gfy-placeholder($placeholder_color: #CCC)
+  input::-webkit-input-placeholder
+    :color $placeholder_color
+  input:-moz-placeholder
+    :color $placeholder_color
+  input:-ms-input-placeholder
+    :color $placeholder_color
+  .placeholder
+    :color $placeholder_color
+=gfy-form($padding: 2em, $input_text_size: 1.2em, $font: undefined)
+  :margin 0
+  :padding $padding
+  //+form-color($form_default_background_color, $form_default_text_color)
+  ul, ol, li, fieldset, legend, input, textarea
+    :margin 0
+    :padding 0
+
+  fieldset
+    :border 0
+  //em, strong
+
+  ol, ul
+    :list-style none
+
+  abbr, acronym
+    :border 0
+    :font-variant normal
+  input, textarea, select
+    :font-family inherit
+    :font-size inherit
+    :font-weight inherit
+  input, textarea, label, select
+    :font
+      @if $font == undefined
+        :family 'Lucida Grande', Arial, sans-serif
+      @else
+        :family $font
+      :size $input_text_size
+    @media screen and (max-width: $break-mobile)
+      :font
+        :size 2.2em
+      
+  input, textarea
+    :padding 2px
+  //input
+  //  &[type="radio"]
+  //    vertical-align: text-bottom
+  //  &[type="checkbox"]
+  //    vertical-align: bottom
+  //    html.ie7 &
+  //      vertical-align: baseline
+  //  html.ie6 &
+  //    vertical-align: text-bottom
+    &[type="button"], &[type="submit"], &[type="image"]
+      cursor: pointer
+  textarea
+    overflow: auto
+  label
+    :cursor pointer
+    :height 1.8em
+    :line-height 1.8em
+  select
+    :padding 1px 0
+  legend
+    span
+      :font
+        :size $input_text_size
+      :line-height 1.4em
+  fieldset
+    :clear both
+    :text-align left
+    //:display inline-block
+    &.contain
+      :border 1px solid
+      :margin 4em 0 2em 0
+      legend
+        width: $label_width
+        :font-weight bold
+        :position relative
+        span
+          :position absolute
+          :top -35px
+          :left -1px
+          :height 15px
+          :padding 10px 0
+          :width 100%
+          :text-align center
+          :border 1px solid
+          :border-bottom none
+      ol
+        :padding 2em
+        li
+          &.inline
+            ol
+              // CHANGE FOR LABEL
+              :margin-left 0
+              :padding-left 0
+              &.labeled
+                :margin-left $label_width
+    &.inputs
+      ol
+        li
+          :border 1px solid transparent
+          .button
+            :margin-top .5em
+      +gfy-field-color($form_default_background_color, $form_default_text_color)
+    &.buttons
+      padding-left: $label_width
+      ol
+        li
+          :float left
+          :display inline-block
+          :padding-right 5px
+          input
+            :margin-left 10px
+        li.right
+          :float right
+          :display inline
+    &.inline
+      &.gfy-full
+        ol li
+          :float none
+          :padding-right 1.5em
+          &.child
+            :font-size 1em
+            :padding-right .3em
+          //&.country select, &.time_zone select, &.select select, &.date select, &.string input, &.password input, &.numeric input, &.text textarea, &.file input, &.email input, &.phone input
+          select, textarea, input
+            :width 100%
+          &.string, &.password, &.numeric, &.text, &.file, &.email, &.phone
+      :padding-left 0
+      ol li
+        li.child
+          :padding 0
+        @media screen and (min-width: $break-mobile)
+          :float left
+        :padding-left 1em
+        :padding-right 1em
+        @media screen and (max-width: $break-mobile)
+          &.string, &.password, &.numeric, &.text, &.file, &.email, &.phone
+            :padding-right 1.5em
+            &.child
+              :font-size 1em
+              :padding-right .3em
+        :margin-right 1px
+        input
+          :margin 0
+
+        label
+          :width auto
+          :float none
+          :text-align left
+          :height 1.8em
+          :margin 0
+        p
+          &.inline-hints, &.inline-errors
+            :margin-left 0
+            :padding-left 0
+        //&.country select, &.time_zone select, &.select select, &.date select, &.string input, &.password input, &.numeric input, &.text textarea, &.file input, &.email input, &.phone input
+        select, textarea, input
+          :width auto
+          :margin-left 0
+          @media screen and (max-width: $break-mobile)
+            //select, input, textarea
+            :width 100%
+        &.check_boxes, &.radio
+          :float none
+          :display block
+          & fieldset ol, & fieldset ol
+            :margin-left 0
+            :float none
+            :width auto
+          li, li &
+            :float none
+            :display block
+          
+          
+        &.boolean
+          //:padding-left 0
+          :padding-right 1.5em
+          label
+            :padding-left 0
+        &.full-width
+          :height auto
+          :padding-right 1.5em
+          :position relative
+          :clear both
+          :float none
+          :right 0
+          br
+            //l
+            :display none
+          &.string input, &.password input, &.numeric input, &.text textarea
+            :width 100%
+            :float none
+    &:after
+      :content "."
+      :display block
+      :height 0
+      :clear both
+      :visibility hidden
+  .heading
+    :margin-bottom 1em
+    h1,h2,h3,h4,h5,h6
+      :margin 0 0 .5em 0
+      :text-align center
+  .errorExplanation, .error-explanation
+    :margin 0
+    :padding 2em 3em
+    :border 5px solid
+    background: $error_background_color
+    color: $error_color
+    border-color: $error_border_color
+    h2
+      :font
+        :size 1.6em
+        :weight bold
+      :letter-spacing -0.06em
+    p, li
+      :font-size 1.2em
+      :line-height 1.4em
+      :margin 1em 0
+      :text-align left
+    ul, ol
+      :padding-left 0
+      :margin 1.5em 0
+      :list-style-type decimal
+      li
+        :margin .5em 0
+  html[xmlns] &
+    fieldset
+      :display block
+  * html &
+    fieldset
+      :height 1%
+  fieldset ol li
+    :margin-bottom .5em
+    :display block
+    :float none
+    :padding .8em 1em
+
+    &:after
+      :content "."
+      :display block
+      :height 0
+      :clear both
+      :visibility hidden
+
+
+  html[xmlns] &
+    fieldset ol li
+      :display block
+
+
+  * html &
+    fieldset ol li
+      :height 1%
+  fieldset.text
+    p
+      :font-size 1.2em
+    input, textarea, label, select
+      :font-size 1em
+      :margin-bottom .5em
+  fieldset
+    ol li
+      label, fieldset legend.label label
+        :text-align right
+        :font-weight bold
+        :height auto
+        :margin-top .4em
+        :line-height 1.4em
+        .inline-hints
+          :font
+            :weight normal
+            :size .9em
+          @media screen and (max-width: $break-mobile)
+            :font
+              :size 1.2em
+          :height auto
+      &.inline
+        //:width auto
+        //:float left
+        //:white-space nowrap
+        //p.inline-hints, p.inline-errors
+          //:padding-left 16px
+        input, select
+          //:width auto
+          //:float left
+        label
+          //:width auto
+          //:float left
+        ol
+          //padding-left: $label_width
+          :padding 0 5px 0 0
+          // CHANGE FOR LABEL
+          margin-left: $label_width
+          li
+            :padding 0
+            //:float left
+            :display inline-block
+            :clear none
+            &.block
+              :display block
+            &.boolean
+              :float left
+              :padding 0
+              label
+                :padding 0 0 0 5px
+              &.delete
+                :padding-right 1em
+                :margin-left 10px
+            &.parent
+              p.inline-hints
+                :border none
+                :clear left
+            &.child
+              input, select
+                :width auto
+              p.inline-hints, p.inline-errors, .filename p.label, .disabled p.label
+                :border none
+                :margin-left 0
+                :padding-left 10px
+              label
+                :border none
+              &.error
+                :padding-top .5em
+                :padding-bottom .5em
+                :padding-right 10px
+                :margin-right .5em
+                :display block
+                :float none
+                +error
+      //&.required, &.optional, &.error
+      label
+        :display block
+        width: $label_width
+        :float left
+        //padding-top: .2em
+        abbr
+          :color $red
+      li label
+        :line-height 100%
+        :padding-top 0
+
+        input
+          :line-height 100%
+          :vertical-align middle
+          :margin-top -0.1em
+
+      fieldset
+        :position relative
+
+        legend
+          //position: absolute
+          width: $label_width
+          :padding-top 0.1em
+          :float left
+          span
+            :position absolute
+          &.label
+            span
+              :position static
+        ol
+          :float left
+          width: $input_width
+          :margin 0
+          //padding-left: $label_width
+
+          li
+            :padding 0
+            :border 0
+
+      p
+        &.inline-hints
+          :font-size 1.1em
+          @media screen and (max-width: $break-mobile)
+            :font
+              :size 1.2em
+          
+          :margin 0.5em 0 1em 0
+          margin-left: $label_width
+          :padding-left 10px
+          label
+            :font-size 1em
+            :float none
+            :display inline
+        &.inline-errors
+          :font-size 1.1em
+          :font-weight bold
+          :text-transform uppercase
+          :margin 0.5em 0 1em 0
+          margin-left: $label_width
+          :padding-left 10px
+          :clear left
+      .filename p.label, .disabled p.label
+        :font-size 1.3em
+        :margin 0
+        :display inline-block
+      ul.errors
+        :color $red
+        :margin 0.5em 0 0 0
+        margin-left: $label_width
+        :list-style square
+
+        li
+          :padding 0
+          :border none
+          :display list-item
+
+      &.inline
+        li.boolean label
+          :height 1.8em
+          :line-height 1.8em
+      &.check_boxes, &.radio
+        ol li label
+          :text-align left
+          :margin 0
+          :font
+            :size 1.1em
+            :weight normal
+      
+      //&.country select, &.time_zone select, &.select select, &.date select, &.datetime select, &.check_boxes fieldset ol, &.radio fieldset ol, &.string input, &.password input, &.numeric input, &.text textarea, &.file input, .filename p.label, .disabled p.label, &.email input, &.phone input
+      select, input, textarea, &.check_boxes fieldset ol, &.radio fieldset ol, .filename p.label, .disabled p.label
+        :margin-left 10px
+      fieldset
+        ol
+          //:border 1px solid
+          li
+            :margin-left 10px
+            h1, h2, h3, h4, h5, h6, p
+              :margin-top 0
+        legend.label
+          //:border 1px solid
+          label
+            :display block
+            :float none
+            :width auto
+            //:white-space pre-line
+      &.hidden
+        :display none
+      &.check_boxes
+        label
+          :width auto
+          :float none
+      &.boolean
+        label
+          padding-left: $label_width
+          :width auto
+          :margin 0
+        p.inline-hints
+          :margin 0
+          :display inline
+        input
+          :margin 0 5px 0 10px
+          :vertical-align baseline
+        &.full-width
+          input
+            :margin 0
+      &.form-text
+        fieldset
+          ol
+            li
+              ol
+                :float none !important
+                :width auto !important
+                :list-style decimal !important
+                :padding-left 2.2em
+                li
+                  :margin 0 0 0 0 !important
+                  //:list-style decimal !important
+                  :width auto !important
+                  :display list-item !important
+                  :font-size 1.2em
+                  ul
+                    :padding-left 2.2em
+                    :list-style circle !important
+                    li
+                      :display list-item !important
+                      //:list-style circle !important
+                      :margin 1em 0 !important
+                      :font-size 1em
+      &.radio fieldset ol, &.check_boxes fieldset ol
+        :margin-bottom -0.6em
+
+        li
+          :margin 0.6em 0 0.5em 0
+
+          label
+            :height auto
+            :width 100%
+            img
+              :vertical-align middle
+              :padding 1em
+              :border 1px solid #CCC
+              :background #FFF
+            input
+              :margin-right 0.5em
+              :margin-left -.1em
+      &.date fieldset ol li, &.time fieldset ol li, &.datetime fieldset ol li
+        :float left
+        :width auto
+        :margin 0 .3em 0 0
+
+      &.date fieldset ol li label, &.time fieldset ol li label, &.datetime fieldset ol li label
+        :display none
+
+      &.date fieldset ol li label input, &.time fieldset ol li label input, &.datetime fieldset ol li label input
+        :display inline
+        :margin 0
+        :padding 0
+    &.contain ol li
+      p
+        //&.inline-hints
+        &.inline-errors
+          :margin 0
+
+  html.ie6 &, html.ie7 &, html.ie8 &
+    :overflow hidden
+    fieldset
+      &.buttons
+        :padding-bottom 1.3em
+        ol
+          li
+            //:border 1px solid #000
+            //input
+            form
+              //:border 1px solid #000
+              :padding 0 !important
+              //+has-layout-fix
+          li.right
+            input, a
+              :float right
+      ol li
+        &.inline
+          ol
+            //:float left
+            :background none
+            li
+              &.boolean
+                label
+                  :margin .2em 0 0 0
+                  :padding .2em 0 .2em 5px
+                  :float left
+                input
+                  :border none
+                  :padding 0
+                  :background transparent
+                //&.delete
+
+  html.ie6 &
+    fieldset.inputs ol li.inline ol li
+      :text-align left
+    fieldset
+      &.buttons
+        ol
+          li
+            a
+              :position relative
+            //input
+          //li.right
+      &.contain
+        legend
+          span
+            :top -37px
+            :left -8px
+      ol
+        li
+          :margin-left 0
+          :padding-left 0
+          fieldset ol li
+            :margin-left 0
+          &.radio fieldset legend.label label, &.check_boxes fieldset legend.label label
+            :text-align left
+          &.select
+            select
+              :margin-bottom 2px
+
+
+      ol li.inline
+        ol
+          :display inline-block
+          :margin-left 14%
+          li
+            :float left
+            ol
+              :margin-left 5px
+    fieldset.inline
+      ol
+        li
+          :float left
+          :width 150px
+          //:width auto
+          &.string input, &.password input, &.numeric input, &.text textarea
+            :width auto
+
+          &.full-width
+            :float none
+            :width 90%
+            &.string input, &.password input, &.numeric input, &.text textarea
+              :width 100%
+          &.right
+            :float right
+  html.ie7 &
+    fieldset
+      ol li.inline
+        ol
+          :display inline-block
+          li
+            :float left
+        //input
+
+      ol li
+        fieldset legend.label label
+          :text-align left
+
+      &.contain
+        legend
+          span
+            :left -8px
+        ol
+          li
+            +has-layout-fix
+            //:display inline-block
+            &
+              display: block
+            &.radio fieldset legend.label label, &.check_boxes fieldset legend.label label
+              :text-align left
+
+  html.ie8 &
+    fieldset
+      //&.buttons
+        //ol
+          //li
+            //input
+          //li.right
+            //form
+      ol li
+        &.inline
+          ol
+            li
+              &.boolean
+                label
+                  :margin .2em 0 0 0
+                  :float left
+                //&.delete
