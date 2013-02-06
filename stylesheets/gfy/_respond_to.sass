@@ -1,0 +1,21 @@
+=respond-to($media)
+  // Phone
+  @if $media == palm
+    @media (max-width: 766px)
+      @content
+  // Tablet  - Laptop
+  @if $media == lap
+    @media (min-width: 767px) and (max-width: 979px)
+      @content
+  // Desktop
+  @if $media == desk
+    @media (min-width: 980px)
+      @content
+  // Non-Retina
+  @if $media == non-retina
+    @media screen and (-webkit-max-device-pixel-ratio: 1)
+      @content
+  // Retina Only
+  @if $media == retina
+    @media screen and (-webkit-min-device-pixel-ratio: 2)
+      @content
