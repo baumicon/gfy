@@ -1,0 +1,25 @@
+.grid-wrapper, 
+.gw
+  :list-style none
+  :margin-left -$base-spacing-unit
+  :margin-bottom 0
+  +clearfix
+  :overflow visible
+
+.gr--rev > .g,
+.grid-wrapper > .grid
+  :float right
+  
+.grid, 
+.g
+  :float left
+  :margin 0
+  :padding-left $base-spacing-unit
+  +box-sizing(border-box)
+
+  &.field
+    > input, 
+    > select, 
+    > textarea
+      :width 100%
+      +box-sizing(border-box)
