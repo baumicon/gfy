@@ -3,9 +3,13 @@
   &.flash
     :background
       :position center $flash_full_height
-    #error, #notice
+    #error, 
+    #notice,
+    .alert--error,
+    .alert--notice
       :top 0 !important
-    #message
+    #message,
+    .alert--message
       :top  $flash_full_height !important
     #container
       :top  $flash_full_height !important
@@ -17,13 +21,22 @@
     &.flash
       :background
         :position center ($flash_full_height + $flash_full_height)
-      #error, #notice
+      #error, 
+      #notice,
+      .alert--error,
+      .alert--notice
         :top 0 !important
-      #message
+      #message,
+      .alert--message
         :top  $flash_full_height !important
       #container
         :top ($flash_full_height + $flash_full_height) !important
-  #error, #message, #notice
+  #error, 
+  #message, 
+  #notice,
+  .alert--error, 
+  .alert--message, 
+  .alert--notice
     //l
     :text-align center
     :height  $flash_height
@@ -48,11 +61,13 @@
       :height 2.7em
       :margin 0 0 .5em 0
       :vertical-align middle
-  #error
+  #error, 
+  .alert--error
     :background #FFD1D2
     // url(/images/flash-background.png) bottom center repeat-x
     :color #A01111
-  #message
+  #message, 
+  .alert--message
     :background
       :color  $mac_yellow
       //:image url(/images/flash-background.png)
@@ -64,3 +79,34 @@
     :background #C0FCD5
     // url(/images/flash-background.png) bottom center repeat-x
     :color #2D8169
+
+=gfy-alerts  
+  .alert
+    :margin-bottom $half-spacing-unit
+    :padding $half-spacing-unit
+    :border 1px solid
+    :background lighten($yellow, 20%)
+    :color $yellow_dark
+    :border-color lighten($yellow_dark, 20%)
+    +text-shadow(rgba(255,255,255,0.5) 0 1px 0)
+    +border-radius(5px)
+
+    > p, > ul
+      :margin 0
+
+    &.alert--error
+      :color darken($mac_red, 10%)
+      :background lighten($mac_red, 30%)
+      :border-color lighten($mac_red, 20%)
+
+    &.alert--notice
+      :color $mac_green
+      :background lighten($mac_green, 40%)
+      :border-color lighten($mac_green, 20%)
+
+    &.alert--sticky
+      :border
+        :right none
+        :left none
+      :border-top-color rgba(255,255,255, 0.2)
+      +border-radius(0)
