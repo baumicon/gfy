@@ -119,37 +119,35 @@ $desk-pull: false !default
 
 
 @if $pull == true
-// Not a particularly great selector, but the DRYest way to do things.
+  // Not a particularly great selector, but the DRYest way to do things.
 
   [class*="pull--"]
     position:relative
 
   @include pull-setup()
 
-  @if $palm-pull == true
-    @include media-query(palm)
-      @include pull-setup("palm-");
-      
-  @if $lap-pull == true
-    @include media-query(lap)
-      @include pull-setup("lap-");
-      
+@if $palm-pull == true
+  @include respond-to(palm)
+    @include pull-setup("palm-")
+    
+@if $lap-pull == true
+  @include respond-to(lap)
+    @include pull-setup("lap-")
+    
 
+@if $lap-and-up-pull == true
+  @include respond-to(lap-and-up)
+    @include pull-setup("lap-and-up-")
+    
 
+@if $portable-pull == true
+  @include respond-to(portable)
+    @include pull-setup("portable-")
+    
 
-  @if $lap-and-up-pull == true
-    @include media-query(lap-and-up)
-      @include pull-setup("lap-and-up-");
-      
-
-  @if $portable-pull == true{
-    @include media-query(portable){
-      @include pull-setup("portable-");
-      
-
-  @if $desk-pull == true
-    @include media-query(desk)
-      @include pull-setup("desk-");
+@if $desk-pull == true
+  @include respond-to(desk)
+    @include pull-setup("desk-")
     
 
 
