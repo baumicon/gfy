@@ -995,7 +995,9 @@
           //&.country select, &.time_zone select, &.select select, &.date select, &.string input, &.password input, &.numeric input, &.text textarea, &.file input, &.email input, &.phone input
           select, textarea, input
             :width 100%
-          &.string, &.password, &.numeric, &.text, &.file, &.email, &.phone
+          //&.string, &.password, &.numeric, &.text, &.file, &.email, &.phone
+          &.boolean input
+            :width auto
       :padding-left 0
       ol li
         li.child
@@ -1048,6 +1050,9 @@
           :padding-right 1.5em
           label
             :padding-left 0
+          input
+            @media screen and (max-width: $break-mobile)
+              :width auto
         &.full-width
           :height auto
           :padding-right 1.5em
