@@ -9,7 +9,7 @@
   @else
     +background(linear-gradient($background, $background_bottom))
   @include box-shadow(rgba(255,255,255,0.5) 0 1px 0 0 inset, rgba(0,0,0,0.6) 0 1px 0, rgba(255,255,255,0.5) 0 2px 0)
-  @include text-shadow(rgba(255,255,255,0.4) 0 1px 0)
+  
   h1
     font-size: $font-size
     line-height: $font-size*1.6796875
@@ -17,12 +17,13 @@
     width: 100%
     margin: 0
     +text-color(darken($background, 5%))
+    @include text-shadow(rgba(255,255,255,0.4) 0 1px 0)
     //color: #4f5a6c
     :position absolute
     :z-index 1
   a
     :position relative
-    :margin 0 .2em
+    :margin 0
     :vertical-align -.1em
   .gfy-right, .gfy-left, .gfy-center
     :line-height $font-size*2.6875
@@ -48,6 +49,7 @@
   .gfy-left
     :float left
     :margin-left 1em
+
 =fill-width
   :left 0
   :right 0
