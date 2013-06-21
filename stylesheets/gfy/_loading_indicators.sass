@@ -1,0 +1,42 @@
+/*** Config **
+
+/* Colors
+$borderColor1: rgba(0, 0, 0, 0.25)
+
+/* used for row 1 & 2
+$borderColor2: rgba(0, 0, 0, 0.5)
+$borderColor3: rgba(0, 0, 0, 0.75)
+$borderColor4: rgba(0, 0, 0, 1)
+
+/* used for row 1 & 2
+
+/* Dimensions
+$borderWidthX: 10px
+$borderWidthY: 10px
+
+/*** Animations / styles **
+
++keyframes(border-loading-indicator)
+  0%
+    border-color: $borderColor4 $borderColor1 $borderColor2 $borderColor3
+  25%
+    border-color: $borderColor3 $borderColor4 $borderColor1 $borderColor2
+  50%
+    border-color: $borderColor2 $borderColor3 $borderColor4 $borderColor1
+  75%
+    border-color: $borderColor1 $borderColor2 $borderColor3 $borderColor3
+  100%
+    border-color: $borderColor4 $borderColor1 $borderColor2 $borderColor3
+
+.border-loading-indicator
+  width: 0px
+  height: 0px
+  //position: absolute
+  margin: -$borderWidthY 0 0 - $borderWidthX
+  border: 0px solid $borderColor4
+  border-width: $borderWidthY $borderWidthX
+  border-radius: $borderWidthY $borderWidthX $borderWidthY $borderWidthX
+
+  -webkit-animation: border-loading-indicator 750ms linear infinite
+  -moz-animation: border-loading-indicator 750ms linear infinite
+  animation: border-loading-indicator 750ms linear infinite
