@@ -8,15 +8,17 @@
   display: $type
   //+ie7-inline-block
   @if $height == auto
-    :line-height $size
+    :line-height $size*1.5
+    :height $size*1.5
   @else
     :line-height $height
+    :height $height
   @if $type == block
     :margin-bottom .2em
     :padding 0
   @else
     :margin-bottom 0
-    :padding .4em 1em .4em
+    :padding 0 1em
   // For input.btn
   //font-size: $baseFontSize
   //line-height: $baseLineHeight
