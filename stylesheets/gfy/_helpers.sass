@@ -247,8 +247,7 @@
 @each $state in palm, lap, portable, desk
   +respond-to(#{$state})
     .hide--#{$state}
-      position: absolute
-      left: -9999px     
+      display: none     
 
 
 @each $state in palm, desk, desk-wide
