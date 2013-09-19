@@ -96,8 +96,8 @@
       :margin 0
 
     &.alert--error
-      :color darken($mac_red, 10%)
-      :background lighten($mac_red, 30%)
+      +gfy-text-color($error_background_color)
+      :background $error_background_color
       :border-color lighten($mac_red, 20%)
 
     &.alert--notice
