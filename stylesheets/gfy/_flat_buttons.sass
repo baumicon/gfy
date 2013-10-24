@@ -55,7 +55,7 @@
   padding-left: $base-spacing-unit
   +background(linear-gradient(rgba(#000,0),rgba(#000,0.1)))
   background-color: $blue 
-  +box-shadow(rgba(#000,0.3) 0 -1px 0 inset) 
+  +box-shadow(rgba(#000,0.3) 0 -2px 0 inset) 
   border-radius: 4px 
   overflow: visible 
   text-decoration: none 
@@ -196,3 +196,17 @@
 
   &:hover
     background-color: #ddd
+
+.btn--outline
+  :background transparent
+  :border 1px solid $blue 
+  :color $blue
+  +box-shadow(rgba(#000,0) 0 0 0 )
+
+  &:hover
+    :background transparent
+
+  &:active
+    +box-shadow(rgba(#000,0) 0 0 0 )
+    :background-color rgba(#000,0.1)
+  
