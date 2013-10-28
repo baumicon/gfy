@@ -13,7 +13,8 @@
   html.gfy-desktop &
     :position absolute
   .gfy-flash-close
-    +gfy-button($gray)
+    @extend .btn
+    background-color: $gray
     :margin .5em 0 .8em 0
   .gfy-flash
     :border-top 1px solid rgba(255,255,255,0.85)
