@@ -239,7 +239,7 @@
     +form-color($form_default_background_color, $form_default_text_color)
     a, button, input
       &.button
-        :font-size 1.2em !important
+        ////:font-size 1.2em !important
 
         border-color: #797979 !important
         color: #353535 !important
@@ -273,7 +273,7 @@
       :font-variant normal
     input, textarea, select
       :font-family inherit
-      :font-size inherit
+      //:font-size inherit
       :font-weight inherit
     input, textarea, label, select
       :font
@@ -426,8 +426,8 @@
           :weight bold
         :letter-spacing -0.06em
       p, li
-        :font-size 1.2em
-        :line-height 1.4em
+        ////:font-size 1.2em
+        //:line-height 1.4em
         :margin 1em 0
         :text-align left
       ul, ol
@@ -471,9 +471,9 @@
       :height 1%
   fieldset.text
     p
-      :font-size 1.2em
+      ////:font-size 1.2em
     input, textarea, label, select
-      :font-size 1em
+      ////:font-size 1em
       :margin-bottom .5em
   form fieldset
     ol li
@@ -583,16 +583,16 @@
 
       p
         &.inline-hints
-          :font-size 1.1em
+          //:font-size 1.1em
           :margin 0.5em 0 0 0
           margin-left: $label_width
           :padding-left 10px
           label
-            :font-size 1em
+            //:font-size 1em
             :float none
             :display inline
         &.inline-errors
-          :font-size 1.1em
+          //:font-size 1.1em
           :font-weight bold
           :text-transform uppercase
           :margin 0.5em 0 0 0
@@ -600,7 +600,7 @@
           :padding-left 10px
           :clear left
       .filename p.label, .disabled p.label
-        :font-size 1.3em
+        //:font-size 1.3em
         :margin 0
         :display inline-block
       ul.errors
@@ -688,7 +688,7 @@
                   //:list-style decimal !important
                   :width auto !important
                   :display list-item !important
-                  :font-size 1.2em
+                  //:font-size 1.2em
                   ul
                     :padding-left 2.2em
                     :list-style circle !important
@@ -696,7 +696,7 @@
                       :display list-item !important
                       //:list-style circle !important
                       :margin 1em 0 !important
-                      :font-size 1em
+                      //:font-size 1em
       &.radio fieldset ol, &.check_boxes fieldset ol
         :margin-bottom -0.6em
 
@@ -895,7 +895,7 @@
     :font-variant normal
   input, textarea, select
     :font-family inherit
-    :font-size inherit
+    //:font-size inherit
     :font-weight inherit
   input, textarea, label, select
     :font
@@ -905,8 +905,8 @@
         :family $font
       :size $input_text_size
     @media screen and (max-width: $break-mobile)
-      :font
-        :size 1.8em
+      // :font
+      //   :size 1.8em
       
   input, textarea
     :padding 2px
@@ -990,7 +990,7 @@
           :float none
           :padding-right 1.5em
           &.child
-            :font-size 1em
+            //:font-size 1em
             :padding-right .3em
           //&.country select, &.time_zone select, &.select select, &.date select, &.string input, &.password input, &.numeric input, &.text textarea, &.file input, &.email input, &.phone input
           select, textarea, input
@@ -1010,7 +1010,7 @@
           &.string, &.password, &.numeric, &.text, &.file, &.email, &.phone
             :padding-right 1.5em
             &.child
-              :font-size 1em
+              //:font-size 1em
               :padding-right .3em
         :margin-right 1px
         input
@@ -1090,7 +1090,7 @@
         :weight bold
       :letter-spacing -0.06em
     p, li
-      :font-size 1.2em
+      //:font-size 1.2em
       :line-height 1.4em
       :margin 1em 0
       :text-align left
@@ -1130,9 +1130,9 @@
       :height 1%
   fieldset.text
     p
-      :font-size 1.2em
+      //:font-size 1.2em
     input, textarea, label, select
-      :font-size 1em
+      //:font-size 1em
       :margin-bottom .5em
   fieldset
     ol li
@@ -1147,8 +1147,8 @@
             :weight normal
             :size .9em
           @media screen and (max-width: $break-mobile)
-            :font
-              :size 1.2em
+            // :font
+            //   :size 1.2em
           :height auto
       &.inline
         //:width auto
@@ -1245,20 +1245,20 @@
 
       p
         &.inline-hints
-          :font-size smaller // 1.1em
+          //:font-size smaller // 1.1em
           @media screen and (max-width: $break-mobile)
-            :font
-              :size 1.2em
+            // :font
+            //   :size 1.2em
           
           :margin 0.5em 0 1em 0
           margin-left: $label_width
           :padding-left 10px
           label
-            :font-size 1em
+            //:font-size 1em
             :float none
             :display inline
         &.inline-errors
-          :font-size 1.1em
+          //:font-size 1.1em
           :font-weight bold
           :text-transform uppercase
           :margin 0.5em 0 1em 0
@@ -1266,7 +1266,7 @@
           :padding-left 10px
           :clear left
       .filename p.label, .disabled p.label
-        :font-size 1.3em
+        //:font-size 1.3em
         :margin 0
         :display inline-block
       ul.errors
@@ -1343,7 +1343,7 @@
                   //:list-style decimal !important
                   :width auto !important
                   :display list-item !important
-                  :font-size 1.2em
+                  //:font-size 1.2em
                   ul
                     :padding-left 2.2em
                     :list-style circle !important
@@ -1351,7 +1351,7 @@
                       :display list-item !important
                       //:list-style circle !important
                       :margin 1em 0 !important
-                      :font-size 1em
+                      //:font-size 1em
       &.radio fieldset ol, &.check_boxes fieldset ol
         :margin-bottom -0.6em
 
