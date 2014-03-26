@@ -1,20 +1,18 @@
 .grid-wrapper, 
 .gw
   :list-style none
-  :margin-left -$base-spacing-unit !important
+  :margin-left -$base-spacing-unit
   :margin-bottom 0
   +gfy-clearfix
   :overflow visible
 
-.gr--rev > .g,
-.grid-wrapper--rev > .grid
-  :float right
+
   
 .grid, 
 .g
   :float left !important
-  :margin 0 !important
-  :padding-left $base-spacing-unit !important
+  :margin 0
+  :padding-left $base-spacing-unit
   +box-sizing(border-box)
   :min-height 1em
 
@@ -24,3 +22,7 @@
     > textarea
       :width 100%
       +box-sizing(border-box)
+
+.gr--rev > .g,
+.grid-wrapper--rev > .grid
+  :float right

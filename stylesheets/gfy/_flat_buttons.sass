@@ -48,8 +48,8 @@
   cursor: pointer 
   border: none 
   margin: 0 
-  padding-top: 0 
-  padding-bottom: 2px
+  padding-top: 0 !important
+  padding-bottom: 2px !important
   height: 30px
   padding-right: $base-spacing-unit 
   padding-left: $base-spacing-unit
@@ -61,6 +61,8 @@
   text-decoration: none 
   color: #fff 
   +text-shadow(rgba(#fff,0) 0 0 0)
+  +box-sizing(content-box)
+
   &:hover, &:active, &:focus, &:visited
     text-decoration: none 
     color: #fff 

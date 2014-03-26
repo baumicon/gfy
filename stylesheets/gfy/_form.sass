@@ -1496,3 +1496,175 @@
                   :margin .2em 0 0 0
                   :float left
                 //&.delete
+
+=gfy-form-v2
+
+  //Sample HTML:
+  // .gfy-form
+  //   %fieldset
+  //     .gw
+  //       .g.one-whole.field.parent
+  //         %label Label
+  //         .gw
+  //           .g.one-half.child
+  //             %input.input--text.input--full{:type => "text"}
+  //             %p.inline-hints Input 1 Label
+  //           .g.one-half.child
+  //             %input.input--text.input--full{:type => "text"}
+  //             %p.inline-hints  Input 2 Label
+
+
+  .gfy-form
+    fieldset > .gw
+      :margin-left 0
+
+    ol.gw
+      :margin
+        :top 0
+      :padding 0
+
+    .field, 
+    .parent, 
+    .child
+      +font-size(1) //reset font-size to 1rem so it doesn't affect padding
+
+    .field
+      :text-align left
+      :padding $base-spacing-unit
+      :margin-bottom $base-spacing-unit
+
+      > label
+        :font-weight bold
+        :display inline-block
+        :padding 0 0 $half-spacing-unit 0
+
+    .parent
+      :padding-bottom 0
+
+    .child
+      :padding 
+        :top 0 
+        :right 0
+        :bottom $base-spacing-unit
+
+      :margin 0
+
+    .inline-hints
+      :margin $half-spacing-unit 0 0 0
+
+      label
+        :text-decoration underline
+
+    .highlight
+      +text-shadow($highlight_text_shadow)
+      :background $highlight_background_color
+      :color $highlight_color
+      :font
+        :weight normal
+      p
+        :color $highlight_color
+        +text-shadow($highlight_text_shadow)
+
+      input, textarea, li input, li textarea
+        :background #FFFFFF
+      label
+        :color $highlight_color
+        +text-shadow($highlight_text_shadow)
+      ol
+        :background-color $highlight_background_color
+        li
+          &.delete
+            :background-color $error_background_color
+            label
+              :color  $error_color
+
+    .gfy-validate
+      .gfy-valid
+        :padding-left .2em
+        :padding-right .2em
+      .gfy-invalid
+        :color $black
+      .gfy-valid
+        :color $green
+        :background $mint_light
+        :border 1px solid lighten($green, 10%)
+        :border-top-color #FFF
+        :border-left-color #FFF
+        +border-radius(.2em)
+    .error .gfy-validate
+      .gfy-invalid
+        :color $red !important
+
+
+    input, select
+      &.required
+        +field-required
+        &.invalid
+          +field-invalid
+        &.valid
+          +field-valid
+      &:required
+        +field-required
+        &:invalid
+          +field-invalid
+        &:valid
+          +field-valid
+
+  .input--full
+    :width 100%
+
+  .date, .search, .input
+    label, legend
+      :text-align left
+      +font-size(1.6)
+      :height auto
+      :display  block
+      :margin-bottom 5px
+
+    .inline-hints
+      +font-size(1.2)
+      :text-align left
+      :color #666
+      :margin 0
+
+    .gfy-validate, .inline-hints
+      label
+        :font-size 100%
+        :display inline
+
+      .gfy-valid
+        :display none
+      .gfy-invalid
+
+  input[type=file]
+    :border none
+
+  .input--text
+    :width 100%
+    +font-size(1.4)
+    :height 2.4em
+    :margin 0
+    :padding $half-spacing-unit
+    +box-sizing(border-box)
+    :border 1px solid lighten(#000,70%)
+    +box-shadow(rgba(#fff,0.7) 0 1px 0)
+
+  .input--file
+    :border none
+    :padding $half-spacing-unit 0
+
+  .select2-choice, 
+  .select2-search,
+  .select2-choices,
+  .select2-results
+    +font-size(1.4)
+    :text-align left
+
+  .select2-choices
+    :min-height 2.3em !important
+
+  .select2-search-choice
+    :margin 0.4em 0.25em !important
+
+  .select2-search-field input
+    :margin 0.5em
