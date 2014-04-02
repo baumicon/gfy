@@ -1,0 +1,114 @@
+=padding-setup($namespace: "") 
+  .#{$namespace}soft           
+    padding: $base-spacing-unit !important
+    
+  .#{$namespace}soft--top      
+    padding-top: $base-spacing-unit !important
+    
+  .#{$namespace}soft--right    
+    padding-right: $base-spacing-unit !important
+    
+  .#{$namespace}soft--bottom   
+    padding-bottom: $base-spacing-unit !important
+    
+  .#{$namespace}soft--left     
+    padding-left: $base-spacing-unit !important
+    
+  .#{$namespace}soft--ends     
+    padding-top: $base-spacing-unit !important
+    padding-bottom: $base-spacing-unit !important
+    
+  .#{$namespace}soft--sides    
+    padding-right: $base-spacing-unit !important
+    padding-left: $base-spacing-unit !important
+    
+
+  .#{$namespace}soft-half           
+    padding: $half-spacing-unit !important
+    
+  .#{$namespace}soft-half--top      
+    padding-top: $half-spacing-unit !important
+    
+  .#{$namespace}soft-half--right    
+    padding-right: $half-spacing-unit !important
+    
+  .#{$namespace}soft-half--bottom   
+    padding-bottom: $half-spacing-unit !important
+    
+  .#{$namespace}soft-half--left     
+    padding-left: $half-spacing-unit !important
+    
+  .#{$namespace}soft-half--ends     
+    padding-top: $half-spacing-unit !important
+    padding-bottom: $half-spacing-unit !important
+    
+  .#{$namespace}soft-half--sides    
+    padding-right: $half-spacing-unit !important
+    padding-left: $half-spacing-unit !important
+    
+
+  .#{$namespace}soft-double           
+    padding: $base-spacing-unit*2 !important
+    
+  .#{$namespace}soft-double--top      
+    padding-top: $base-spacing-unit*2 !important
+    
+  .#{$namespace}soft-double--right    
+    padding-right: $base-spacing-unit*2 !important
+    
+  .#{$namespace}soft-double--bottom   
+    padding-bottom: $base-spacing-unit*2 !important
+    
+  .#{$namespace}soft-double--left     
+    padding-left: $base-spacing-unit*2 !important
+    
+  .#{$namespace}soft-double--ends     
+    padding-top: $base-spacing-unit*2 !important
+    padding-bottom: $base-spacing-unit*2 !important
+    
+  .#{$namespace}soft-double--sides    
+    padding-right: $base-spacing-unit*2 !important
+    padding-left: $base-spacing-unit*2 !important
+
+  .#{$namespace}hard
+    padding: 0 !important
+    
+  .#{$namespace}hard--top
+    padding-top: 0 !important
+    
+  .#{$namespace}hard--right
+    padding-right: 0 !important
+    
+  .#{$namespace}hard--bottom
+    padding-bottom: 0 !important
+    
+  .#{$namespace}hard--left     
+    padding-left: 0 !important
+    
+  .#{$namespace}hard--ends     
+    padding-top: 0 !important
+    padding-bottom: 0 !important
+    
+  .#{$namespace}hard--sides    
+    padding-right: 0 !important
+    padding-left: 0 !important
+
++padding-setup()
+
++respond-to(palm)
+  +padding-setup("palm-")
+
++respond-to(lap)
+  +padding-setup("lap-")
+
++respond-to(lap-and-up)
+  +padding-setup("lap-and-up-")
+
++respond-to(portable)
+  +padding-setup("portable-")
+
++respond-to(desk)
+  +padding-setup("desk-")
+
++respond-to(desk-wide)
+  +padding-setup("desk-wide-")

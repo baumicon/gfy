@@ -1,0 +1,94 @@
+
+=margins-setup($namespace: "") 
+  // Add/remove margins
+  .#{$namespace}push
+    margin: $base-spacing-unit !important
+    
+  .#{$namespace}push--top      
+    margin-top: $base-spacing-unit !important
+    
+  .#{$namespace}push--right    
+    margin-right: $base-spacing-unit !important
+    
+  .#{$namespace}push--bottom   
+    margin-bottom: $base-spacing-unit !important
+    
+  .#{$namespace}push--left     
+    margin-left: $base-spacing-unit !important
+    
+  .#{$namespace}push--ends     
+    margin-top: $base-spacing-unit !important
+    margin-bottom: $base-spacing-unit !important
+    
+  .#{$namespace}push--sides    
+    margin-right: $base-spacing-unit !important
+    margin-left: $base-spacing-unit !important
+    
+
+  .#{$namespace}push-half          
+    margin: $half-spacing-unit !important
+    
+  .#{$namespace}push-half--top     
+    margin-top: $half-spacing-unit !important
+    
+  .#{$namespace}push-half--right   
+    margin-right: $half-spacing-unit !important
+    
+  .#{$namespace}push-half--bottom  
+    margin-bottom: $half-spacing-unit !important
+    
+  .#{$namespace}push-half--left    
+    margin-left: $half-spacing-unit !important
+    
+  .#{$namespace}push-half--ends    
+    margin-top: $half-spacing-unit !important
+    margin-bottom: $half-spacing-unit !important
+    
+  .#{$namespace}push-half--sides   
+    margin-right: $half-spacing-unit !important
+    margin-left: $half-spacing-unit !important
+    
+
+  .#{$namespace}flush          
+    margin: 0 !important
+    
+  .#{$namespace}flush--top     
+    margin-top: 0 !important
+    
+  .#{$namespace}flush--right   
+    margin-right: 0 !important
+    
+  .#{$namespace}flush--bottom  
+    margin-bottom: 0 !important
+    
+  .#{$namespace}flush--left    
+    margin-left: 0 !important
+    
+  .#{$namespace}flush--ends    
+    margin-top: 0 !important
+    margin-bottom: 0 !important
+    
+  .#{$namespace}flush--sides   
+    margin-right: 0 !important
+    margin-left: 0 !important
+
+
++margins-setup()
+
++respond-to(palm)
+  +margins-setup("palm-")
+
++respond-to(lap)
+  +margins-setup("lap-")
+
++respond-to(lap-and-up)
+  +margins-setup("lap-and-up-")
+
++respond-to(portable)
+  +margins-setup("portable-")
+
++respond-to(desk)
+  +margins-setup("desk-")
+
++respond-to(desk-wide)
+  +margins-setup("desk-wide-")
