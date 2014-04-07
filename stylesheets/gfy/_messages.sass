@@ -111,3 +111,33 @@
         :left none
       :border-top-color rgba(255,255,255, 0.2)
       +border-radius(0)
+
+    &.alert--striped
+      :border none
+      +border-radius(0)
+      :background none
+
+      .well &
+        +border-top-radius($half-spacing-unit)
+
+      +respond-to(palm)
+        :margin -$base-spacing-unit
+      :padding $base-spacing-unit
+
+      p
+        :margin 0
+
+      &.alert--error
+        +background(url(/assets/diagonal-bar-bg.png),linear-gradient(rgba(#FFD1D2,1),rgba(#FFD1D2,0)))
+        :background-repeat repeat-x
+        :color #A01111
+
+      &.alert--message
+        +background(url(/assets/diagonal-bar-bg.png),linear-gradient(rgba($mac_yellow,1),rgba($mac_yellow,0)))
+        :background-repeat repeat-x
+        :color #502E17
+
+      &.alert--notice
+        +background(url(/assets/diagonal-bar-bg.png),linear-gradient(rgba(#C0FCD5,1),rgba(#C0FCD5,0)))
+        :background-repeat repeat-x
+        :color #2D8169
