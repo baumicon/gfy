@@ -1543,9 +1543,13 @@
         :padding 0 0 $half-spacing-unit/5*2 0
 
     .checkbox
+      :display inline-block
       label
-        :padding $half-spacing-unit $half-spacing-unit $half-spacing-unit 0
-        :display inline-block
+        :padding $half-spacing-unit 0
+        :display block
+
+      .checkboxes &
+        :padding-right $half-spacing-unit
 
     .parent
       :padding-bottom 0
