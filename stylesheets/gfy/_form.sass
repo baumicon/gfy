@@ -95,7 +95,7 @@
           :background-color $error_background_color
           label
             :color  $error_color
- 
+
 =form-color( $form_background_color: #EEE, $form_text_color: #333)
   :background $form_background_color
   :color $form_text_color
@@ -385,8 +385,8 @@
             li, li &
               :float none
               :display block
-            
-            
+
+
           &.boolean
             //:padding-left 0
             :padding-right 1.5em
@@ -897,7 +897,7 @@
     @media screen and (max-width: $break-mobile)
       // :font
       //   :size 1.8em
-      
+
   input, textarea
     :padding 2px
   //input
@@ -1033,8 +1033,8 @@
           li, li &
             :float none
             :display block
-          
-          
+
+
         &.boolean
           //:padding-left 0
           :padding-right 1.5em
@@ -1229,7 +1229,7 @@
           @media screen and (max-width: $break-mobile)
             // :font
             //   :size 1.2em
-          
+
           :margin 0.5em 0 1em 0
           margin-left: $label_width
           :padding-left 10px
@@ -1271,7 +1271,7 @@
           :font
             :size 1.1em
             :weight normal
-      
+
       //&.country select, &.time_zone select, &.select select, &.date select, &.datetime select, &.check_boxes fieldset ol, &.radio fieldset ol, &.string input, &.password input, &.numeric input, &.text textarea, &.file input, .filename p.label, .disabled p.label, &.email input, &.phone input
       select, input, textarea, &.check_boxes fieldset ol, &.radio fieldset ol, .filename p.label, .disabled p.label
         :margin-left 10px
@@ -1497,6 +1497,41 @@
                   :float left
                 //&.delete
 
+=field-required
+  + .gfy-validate
+    :display block
+    .gfy-valid
+      :display none
+    //.gfy-invalid
+      i
+        :display none
+=field-valid
+  + .gfy-validate
+    .gfy-valid
+      :display inline
+    .gfy-invalid
+      :display none
+=field-invalid
+  :box-shadow none
+  &:focus
+    + .gfy-validate
+      .gfy-invalid
+        :color $red
+        i
+          :display inline
+  &.blur
+    + .gfy-validate
+      .gfy-invalid
+        :color $red
+        i
+          :display inline
+  + .gfy-validate
+    .gfy-valid
+      :display none
+    .gfy-invalid
+      :display inline
+      :color $black
+
 =gfy-form-v2
   //Sample HTML:
   // .gfy-form
@@ -1511,7 +1546,7 @@
   //           .g.one-half.child
   //             %input.input--text.input--full{:type => "text"}
   //             %p.inline-hints  Input 2 Label
-  
+
   // Whithout a grid
   //%fieldset
   // .field
@@ -1527,11 +1562,12 @@
         :top 0
       :padding 0
 
-    .field, 
-    .parent, 
+    .field,
+    .parent,
     .child
-      +font-size(1) //reset font-size to 1rem so it doesn't affect padding
-
+      //reset font-size to 1rem so it doesn't affect padding
+      +font-size(1)
+      
     .field
       :text-align left
       :padding $base-spacing-unit
@@ -1555,15 +1591,15 @@
       :padding-bottom 0
 
     .child
-      :padding 
-        :top 0 
+      :padding
+        :top 0
         :right 0
         :bottom $base-spacing-unit
       :margin 0
 
     .inline-hints
       :margin $half-spacing-unit 0 0 0
-      
+
       label
         :text-decoration underline
 
@@ -1665,7 +1701,7 @@
     :border none
     :padding $half-spacing-unit 0
 
-  .select2-choice, 
+  .select2-choice,
   .select2-search,
   .select2-choices,
   .select2-results
