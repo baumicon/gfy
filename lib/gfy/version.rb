@@ -1,3 +1,3 @@
 module Gfy
-  VERSION = "0.0.28"
+  VERSION = "0.7.0"
 end
