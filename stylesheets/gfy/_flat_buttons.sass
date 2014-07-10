@@ -1,117 +1,183 @@
-//    $BEAUTONS.CSS
+$btn-flat: false
 
-// beautons is a beautifully simple button toolkit.
-// 
-// LICENSE
-// 
-// Copyright 2013 Harry Roberts
-// 
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-// 
-// http://apache.org/licenses/LICENSE-2.0
-// 
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+@function set-button-text-color($color) 
+  @if (lightness( $color ) > 80) 
+    @return #000000
+  @else 
+    @return #FFFFFF
+    
+=btn-colors($btn-color)
+  
+  $btn-dark-color: darken($btn-color, 5%)
+  
+  background-color: $btn-color
+  border-color: $btn-dark-color
+  color: set-button-text-color($btn-color)
 
-//  * @csswizardry -- csswizardry.com/beautons
+  i[class*="fa-"]
+    color: set-button-text-color($btn-color)
 
-//    $BASE
-
-// Base button styles.
-//
-//  1. Allow us to better style box model properties.
-//  2. Line different sized buttons up a little nicer.
-//  3. Stop buttons wrapping and looking broken.
-//  4. Make buttons inherit font styles.
-//  5. Force all elements using beautons to appear clickable.
-//  6. Normalise box model styles.
-//  7. If the button’s text is 1em, and the button is (3 * font-size) tall, then
-//     there is 1em of space above and below that text. We therefore apply 1em
-//     of space to the left and right, as padding, to keep consistent spacing.
-//  8. Basic cosmetics for default buttons. Change or override at will.
-//  9. Fixes odd inner spacing in IE7.
-// 10. Don’t allow buttons to have underlines; it kinda ruins the illusion.
-// 11. Prevents from inheriting default anchor styles.
-
-.btn
-  display: inline-block 
-  vertical-align: middle 
-  white-space: nowrap 
-  font-family: inherit 
-  +font-size(1.4, 3)
-  //font-size: 1.4//100%
-  cursor: pointer 
-  border: none 
-  margin: 0 
-  padding-top: 0 !important
-  padding-bottom: 2px !important
-  height: 30px
-  padding-right: $base-spacing-unit 
-  padding-left: $base-spacing-unit
-  +background(linear-gradient(rgba(#000,0),rgba(#000,0.1)))
-  background-color: $blue 
-  +box-shadow(rgba(#000,0.3) 0 -2px 0 inset) 
-  border-radius: 4px 
-  overflow: visible 
-  text-decoration: none 
-  color: #fff 
-  +text-shadow(rgba(#fff,0) 0 0 0)
-  +box-sizing(content-box)
+  &:hover
+    background-color: $btn-dark-color
 
   &:hover, &:active, &:focus, &:visited
-    text-decoration: none 
-    color: #fff 
-  &:hover
-    +background(linear-gradient(rgba(#fff,0.1),rgba(#000,0.1)))
-    background-color: $blue 
-    //box-shadow: 0 0 5px rgba(0, 0, 0, 0.5)
+    color: set-button-text-color($btn-color)
+    border-color: $btn-dark-color
+
   &:active, &:focus
     outline: none
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5) inset
-  &::-moz-focus-inner
-    border: 0
-    padding: 0 
+    +box-shadow(rgba(0, 0, 0, 0.2) 0 2px 2px inset)
+
+  @if $btn-flat == false
+    +background(linear-gradient(rgba(#000,0),rgba(#000,0.1)))
+    background-color: $btn-color
+
+  &.btn--outline, &.btn--outline:visited
+    color: $btn-dark-color
+    +background(linear-gradient(rgba(#000,0),rgba(#000,0)))
+    background-color: transparent
+
+    i[class*="fa-"]
+      color: $btn-dark-color
+
+    &:hover, &:active, &:focus
+      color: set-button-text-color($btn-color)
+      background-color: $btn-dark-color
+
+      i[class*="fa-"]
+        color: set-button-text-color($btn-color)
 
 
-//    $SIZES
+  &.btn--link, &.btn--link:visited
+    +background(linear-gradient(rgba(#000,0),rgba(#000,0)))
+    background-color: transparent
+    color: $btn-color
 
-// Button size modifiers.
-// // These all follow the same sizing rules as above; text is 1em, space around it
-// remains uniform.
+    i[class*="fa-"]
+      color: $btn-color
+
+    &:hover
+      text-decoration: underline
+      color: $btn-dark-color
+
+    &:active
+      +box-shadow(none)      
+
+=btn-size($padding, $font-size, $line-height)
+  +font-size($font-size, $line-height)
+  padding-right: $padding
+  padding-left: $padding
+  height: $line-height * 10px
+
+  &.btn--round
+    padding: 0
+    width: $line-height * 10px
+    +border-radius(50%)
+
+=btn-text-size($font-size)
+  :font-size $font-size
+
+=btn-setup()
+  .btn
+    text-decoration: none
+    display: inline-block
+    vertical-align: middle
+    white-space: nowrap
+    font-family: inherit
+    cursor: pointer
+    margin: 0
+    padding-top 0
+    padding-bottom 0
+    border-width: 1px
+    border-style: solid
+
+    @if $btn-flat == false
+      border-width: 0
+      padding-bottom: 2px
+      +box-shadow(rgba(#000,0.3) 0 -2px 0 inset)
+      
+    
+    overflow: visible
+    text-decoration: none
+
+    +text-shadow(rgba(#fff,0) 0 0 0)
+    +box-sizing(content-box)
+    +btn-size($base-spacing-unit, 1.4, 3)
+    +btn-colors($blue)
+    +border-radius(5px)
+
+    &:hover, &:active, &:focus, &:visited
+      text-decoration: none
+
+    &::-moz-focus-inner
+      border: 0
+      padding: 0
+
+  .btn--outline
+    :border-width 1px
+    :padding-top 0
+    :padding-bottom 0
+    +box-shadow(none)
+
+  .btn--link
+    :border-width 0
+    +box-shadow(none)
+    :padding-top 1px
+    :padding-bottom 1px
+
+
++btn-setup()
+
+//Button Sizes
 
 .btn--mini
-  padding-right: $half-spacing-unit
-  padding-left: $half-spacing-unit
-  +font-size(1, 2.2)
-  height: 22px
+  +btn-size($half-spacing-unit, 1, 2.2)
 
 .btn--small
-  padding-right: $base-spacing-unit
-  padding-left: $base-spacing-unit
-  +font-size(1.1, 2.6)
-  height: 26px
+  +btn-size($base-spacing-unit, 1.2, 2.6)
 
 .btn--large
-  padding-right: 1.5em
-  padding-left: 1.5em
-  +font-size(1.8, 4.4)
-  height: 44px
+  +btn-size($base-spacing-unit + $half-spacing-unit, 1.8, 4.4)
 
 .btn--huge
-  padding-right: 2em
-  padding-left: 2em
-  line-height: 6
-  height: 6
+  +btn-size($base-spacing-unit*2, 2, 6)
 
+//Button Text Size
 
-// These buttons will fill the entirety of their container.
-//
-// 1. Remove padding so that widths and paddings don’t conflict.
+.btn--alpha
+  +btn-text-size(3rem)
+
+.btn--beta
+  +btn-text-size(2rem)
+
+.btn--gamma
+  +btn-text-size(1rem)
+
+//Button Colors
+
+.btn--plain, .btn--default
+  +btn-colors(#999)
+
+.btn--primary
+  +btn-colors($blue)
+
+.btn--positive,
+.btn--success,
+.btn--new
+  +btn-colors($green_light)
+
+.btn--negative, 
+.btn--danger
+  +btn-colors($red)
+
+.btn--inactive, 
+.btn--disabled,
+.btn[disabled]
+  pointer-events: none
+  cursor: not-allowed
+  +opacity(0.5)
+  
+//Button Style Options
 
 .btn--full
   width: 100% !important
@@ -119,97 +185,4 @@
   padding-left: 0
   text-align: center
 
-//    $FONT-SIZES
 
- * Button font-size modifiers.
-
-.btn--alpha
-  font-size: 3rem
-
-.btn--beta
-  font-size: 2rem
-
-.btn--gamma
-  font-size: 1rem
-
-// Make the button inherit sizing from its parent.
-
-.btn--natural
-  vertical-align: baseline
-  font-size: inherit
-  line-height: inherit
-  height: auto
-  padding-right: 0.5em
-  padding-left: 0.5em
-
-//    $FUNCTIONS
-// Button function modifiers.
-
-.btn--primary!, .btn--secondary!, .btn--tertiary!
-
-// Positive actions; e.g. sign in, purchase, submit, etc.
-
-.btn--positive, .btn--success, .btn--new
-  background-color: $green
-  color: #fff
-  &:hover
-    background-color: $green 
-
-// Negative actions; e.g. close account, delete photo, remove friend, etc.
-
-.btn--negative, .btn--danger
-  background-color: $red
-  color: #fff
-  &:hover
-    background-color: $red 
-
-// Inactive, disabled buttons.
-// 1. Make the button look like normal text when hovered.
-
-.btn--inactive, .btn--disabled
-  background-color: #eee
-  color: lighten(#000, 70%) !important
-  cursor: default
-  box-shadow: none
-  +text-shadow(none)
-  &:hover, &:active, &:focus
-    background-color: #eee
-    color: lighten(#000, 70%) !important
-    cursor: default
-    box-shadow: none
-
-//    $STYLES
-
-// Button style modifiers.
-// 1. Use an overly-large number to ensure completely rounded, pill-like ends.
-
-.btn--soft
-  border-radius: 5em
-
-.btn--hard
-  border-radius: 0
-
-.btn--plain
-  color: lighten(#000, 30%)
-  background-color: #ddd
-
-  &:hover, &:active, &:focus, &:visited
-    color: lighten(#000, 30%)
-
-  &:hover
-    background-color: #ddd
-
-.btn--outline
-  :background transparent
-  :border 1px solid $blue 
-  :padding-bottom 0
-  :color $blue
-  +box-shadow(rgba(#000,0) 0 0 0 )
-
-  &:hover
-    :background transparent
-
-  &:active
-    +box-shadow(rgba(#000,0) 0 0 0 )
-    :background-color rgba(#000,0.1)
-  
