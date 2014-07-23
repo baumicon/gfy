@@ -1460,7 +1460,6 @@
           :display inline-block
           li
             :float left
-        //input
 
       ol li
         fieldset legend.label label
@@ -1473,7 +1472,6 @@
         ol
           li
             +has-layout-fix
-            //:display inline-block
             &
               display: block
             &.radio fieldset legend.label label, &.check_boxes fieldset legend.label label
@@ -1495,7 +1493,6 @@
                 label
                   :margin .2em 0 0 0
                   :float left
-                //&.delete
 
 =field-required
   + .gfy-validate
@@ -1572,6 +1569,7 @@
       :text-align left
       :padding $base-spacing-unit
       :margin-bottom $base-spacing-unit
+      :min-height 98px
 
       > label
         :font-weight bold
@@ -1598,7 +1596,9 @@
       :margin 0
 
     .inline-hints
-      :margin $half-spacing-unit 0 0 0
+      :margin $half-spacing-unit/2 0 0 0
+      :line-height 21px
+      :line-height 2.1rem
 
       label
         :text-decoration underline
