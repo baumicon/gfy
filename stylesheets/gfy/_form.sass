@@ -1551,10 +1551,12 @@
   //   %input.input--text
 
   .gfy-form
-    fieldset > .gw
+    fieldset > .gw,
+    fieldset > .grid-wrapper
       :margin-left 0
 
-    ol.gw
+    ol.gw,
+    ol.grid-wrapper
       :margin
         :top 0
       :padding 0
@@ -1568,8 +1570,7 @@
     .field
       :text-align left
       :padding $base-spacing-unit
-      :margin-bottom $base-spacing-unit
-      :min-height 98px
+      :margin-bottom $base-spacing-unit 
 
       > label
         :font-weight bold
