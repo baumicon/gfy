@@ -27,6 +27,7 @@
     :vertical-align -.1em
   .gfy-right, .gfy-left, .gfy-center
     :line-height $font-size*2.6875
+    
 =gfy-three-column
   .gfy-right, .gfy-left, .gfy-center
     :position relative
@@ -50,87 +51,87 @@
     :float left
     :margin-left 1em
 
-=fill-width
-  :left 0
-  :right 0
-=fill-height
-  :top 0
-  :bottom 0
-=width($val: 0)
-  :width $val
-  //html.ie6 &
-    //:display inline //Double-margin bug fix
-=height($val: 0)
-  :height $val
-=top($val: 0)
-  :top $val
-=right($val: 0)
-  :right $val
-  :margin-right $val
-  :float right
-  html.ie6 &
-    +double-margin-fix
-=bottom($val: 0)
-  :bottom $val
-=left($val: 0)
-  :left $val
-  :margin-left $val
-  :float left
-  html.ie6 &
-    +double-margin-fix
+// =fill-width
+//   :left 0
+//   :right 0
+// =fill-height
+//   :top 0
+//   :bottom 0
+// =width($val: 0)
+//   :width $val
+//   //html.ie6 &
+//     //:display inline //Double-margin bug fix
+// =height($val: 0)
+//   :height $val
+// =top($val: 0)
+//   :top $val
+// =right($val: 0)
+//   :right $val
+//   :margin-right $val
+//   :float right
+//   html.ie6 &
+//     +double-margin-fix
+// =bottom($val: 0)
+//   :bottom $val
+// =left($val: 0)
+//   :left $val
+//   :margin-left $val
+//   :float left
+//   html.ie6 &
+//     +double-margin-fix
 
-=center($right: 0, $left: 0)
-  @if $right == 0 and $left == 0
-    :right 0
-    :left 0
-  @else
-    :right $right
-    :left $left
-    :margin-right $right
-    :margin-left $left
+// =center($right: 0, $left: 0)
+//   @if $right == 0 and $left == 0
+//     :right 0
+//     :left 0
+//   @else
+//     :right $right
+//     :left $left
+//     :margin-right $right
+//     :margin-left $left
 
-=guify($position: absolute, $width: 100%, $center: false)
-  #container
-    :top 0
-    :bottom 0
-    :left 0
-    :right 0
+// =guify($position: absolute, $width: 100%, $center: false)
+//   #container
+//     :top 0
+//     :bottom 0
+//     :left 0
+//     :right 0
 
-  @if $position == absolute
+//   @if $position == absolute
 
-    #container
-      :position absolute
+//     #container
+//       :position absolute
 
-    .cell
-      :position absolute
-      :float none
-      :overflow hidden
+//     .cell
+//       :position absolute
+//       :float none
+//       :overflow hidden
 
-    div > .cell
-      :margin 0 !important
+//     div > .cell
+//       :margin 0 !important
 
-    .cell > .border
-      :position absolute
-      :top 0
-      :right 0
-      :bottom 0
-      :left 0
-      :overflow auto
+//     .cell > .border
+//       :position absolute
+//       :top 0
+//       :right 0
+//       :bottom 0
+//       :left 0
+//       :overflow auto
 
-  @if $position == static
-    #container
-      :width $width
-      @if $center == true
-        :margin 0 auto
-    #container, .cells, .cell, .cell .border
-      :position static
+//   @if $position == static
+//     #container
+//       :width $width
+//       @if $center == true
+//         :margin 0 auto
+//     #container, .cells, .cell, .cell .border
+//       :position static
 
-  html.ie6 &
-    #container, .cells, .cell, .cell .border
-      :position static
-      :zoom 1
-    .cell .border
-      :overflow auto
+//   html.ie6 &
+//     #container, .cells, .cell, .cell .border
+//       :position static
+//       :zoom 1
+//     .cell .border
+//       :overflow auto
 
 =clearfix
   :overflow auto
@@ -143,15 +144,5 @@
   html.ie6 &, html.ie7 &
     :zoom 1
 
-.attach-l
-  :margin-left 0em
-  :left 0
-  html.ie6 &
-    :float left
-.attach-r
-  :margin-right 0em
-  :right 0
-  html.ie6 &
-    :float right
-
+//
 
