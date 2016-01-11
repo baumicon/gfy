@@ -1,15 +1,15 @@
 
 
-@function set-button-text-color($color) 
-  @if (lightness( $color ) > 80) 
+@function set-button-text-color($color)
+  @if (lightness( $color ) > 80)
     @return #000000
-  @else 
+  @else
     @return #FFFFFF
-    
+
 =btn-colors($btn-color)
-  
+
   $btn-dark-color: darken($btn-color, 5%)
-  
+
   background-color: $btn-color
   border-color: $btn-dark-color
   color: set-button-text-color($btn-color)
@@ -61,7 +61,7 @@
       color: $btn-dark-color
 
     &:active
-      +box-shadow(none)      
+      +box-shadow(none)
 
 =btn-size($padding, $font-size, $line-height)
   +font-size($font-size, $line-height)
@@ -95,8 +95,8 @@
       border-width: 0
       padding-bottom: 2px
       +box-shadow(rgba(#000,0.3) 0 -2px 0 inset)
-      
-    
+
+
     overflow: visible
     text-decoration: none
 
@@ -166,17 +166,17 @@
 .btn--new
   +btn-colors($green_light)
 
-.btn--negative, 
+.btn--negative,
 .btn--danger
   +btn-colors($red)
 
-.btn--inactive, 
+.btn--inactive,
 .btn--disabled,
 .btn[disabled]
   pointer-events: none
   cursor: not-allowed
   +opacity(0.5)
-  
+
 //Button Style Options
 
 .btn--full
@@ -184,5 +184,3 @@
   padding-right: 0
   padding-left: 0
   text-align: center
-
-
