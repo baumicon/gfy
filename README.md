@@ -1,6 +1,6 @@
 # Gfy
 
-TODO: Write a gem description
+Compass Extension with various sass mixins.
 
 ## Installation
 
